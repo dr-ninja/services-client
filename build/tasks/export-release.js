@@ -17,7 +17,6 @@ function getBundles() {
   for (b in bundles.bundles) {
     bl.push(b + '.js');
   }
-  console.log(bl);
   return bl;
 }
 
@@ -26,8 +25,6 @@ function getExportList() {
 }
 
 gulp.task('export-copy', function() {
-  console.log(getExportList());
-
   return gulp.src(getExportList(), {base: '.'})
     .pipe(gulp.dest(paths.exportSrv));
 });

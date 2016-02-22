@@ -1,15 +1,16 @@
 {
-  "force": true,
   "bundles": {
     "dist/app-build": {
       "includes": [
-        "[*]",
+        "[*.js]",
         "*.html!text",
         "*.css!text"
       ],
       "options": {
         "inject": true,
-        "minify": true
+        "minify": true,
+        "depCache": true,
+        "rev": false
       }
     },
     "dist/aurelia": {
@@ -30,7 +31,8 @@
       ],
       "options": {
         "inject": true,
-        "minify": true
+        "minify": false,
+        "rev": false
       }
     }
   }
