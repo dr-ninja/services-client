@@ -18,6 +18,7 @@ export class Users {
   }
 
   activate() {
+    console.log('test');
     return this.http.fetch('users')
       .then(response => response.json())
       .then(users => this.users = users);
