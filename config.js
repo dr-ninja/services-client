@@ -321,6 +321,11 @@ System.config({
       "npm:aurelia-framework@1.0.0-beta.1.1.1.js",
       "npm:aurelia-fetch-client@1.0.0-beta.1.1.0.js",
       "github:github/fetch@0.10.1.js"
+    ],
+    "welcome.js": [
+      "npm:aurelia-framework@1.0.0-beta.1.1.1.js",
+      "npm:aurelia-fetch-client@1.0.0-beta.1.1.0.js",
+      "github:github/fetch@0.10.1.js"
     ]
   }
 });
