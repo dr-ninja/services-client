@@ -3,5 +3,3 @@
 build/reports
 coverage
 test/e2e/dist
-node_modules
-jspm_packages
