@@ -1,0 +1,22 @@
+{
+  "name": "Client",
+  "version": "0.0.0",
+  "description": "client app",
+  "main": "test.js",
+  "scripts": {
+    "start": "node test.js"
+  },
+  "dependencies": {
+
+  },
+  "engines": {
+    "node": "0.12.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:dr-ninja/services-client.git"
+  },
+  "keywords": [
+  ],
+  "license": "MIT"
+}
