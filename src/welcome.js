@@ -6,9 +6,10 @@ import {inject} from 'aurelia-framework';
 @inject(HttpClient)
 export class Welcome {
   heading = 'Welcome to the Aurelia Navigation App!';
-  firstName = 'John';
-  lastName = 'Doe';
+  firstName = 'daniel';
+  lastName = 'reis';
   previousValue = this.fullName;
+  data = {};
 
   constructor(http) {
     this.http = http;
@@ -25,7 +26,25 @@ export class Welcome {
 
   submit() {
     this.previousValue = this.fullName;
-    alert(`Welcome, ${this.fullName}!`);
+
+    let postData = new FormData();
+    postData.append( 'username', this.firstName );
+    postData.append( 'password', this.lastName );
+    return this.http.fetch('//auth-services-api.herokuapp.com/login', {
+      method: 'post',
+      credentials: 'include',
+      body: postData
+    })
+
+      .then(response => {
+        response.json();
+      })
+
+      .then(data => {
+        console.log(data);
+      });
+
+    //alert(`Welcome, ${this.fullName}!`);
   }
 
   canDeactivate() {
@@ -34,16 +53,24 @@ export class Welcome {
     }
   }
 
-  attached() {
-    return this.http.fetch('//auth-services-api.herokuapp.com/hello', {
+  checkDb() {
+    return this.http.fetch('//auth-services-api.herokuapp.com/db', {
       method: 'get',
-      headers: new Headers({
-        'Content-Type': 'text/plain',
-        'Access-Control-Allow-Origin': '*'
-      })
+      credentials: 'include'
     })
-      .then(response => alert(response));
+      .then(response => response.json())
+      .then(data => {this.data = data; console.log(data);});
   }
+
+  attached() {
+   /* return this.http.fetch('//auth-services-api.herokuapp.com/db', {
+      method: 'get'
+    })
+      .then(response => response.json())
+      .then(data => {this.data = data; console.log(data);});*/
+  }
+
+
 }
 
 export class UpperValueConverter {
