@@ -1,0 +1,15 @@
+<template>
+  <require from="blur-image"></require>
+
+  <button click.trigger="getAllClients()">check</button>
+
+  <button click.trigger="newClient()">new</button>
+
+  <div repeat.for="client of clients">
+    <p>Nome: ${client.name}</p>
+    <p>NIF: ${client.nif}</p>
+    <p>Telefone: ${client.phone}</p>
+    <p>Email: ${client.email}</p>
+  </div>
+
+</template>

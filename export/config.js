@@ -206,17 +206,22 @@ System.config({
   },
   bundles: {
     "app-build.js": [
+      "api-client.js",
       "app.html!github:systemjs/plugin-text@0.0.3.js",
       "app.js",
       "blur-image.js",
       "child-router.html!github:systemjs/plugin-text@0.0.3.js",
       "child-router.js",
+      "home.html!github:systemjs/plugin-text@0.0.3.js",
+      "home.js",
+      "local-storage-manager.js",
+      "login.html!github:systemjs/plugin-text@0.0.3.js",
+      "login.js",
       "main.js",
       "nav-bar.html!github:systemjs/plugin-text@0.0.3.js",
       "users.html!github:systemjs/plugin-text@0.0.3.js",
       "users.js",
-      "welcome.html!github:systemjs/plugin-text@0.0.3.js",
-      "welcome.js"
+      "utils.js"
     ],
     "aurelia.js": [
       "github:components/jquery@2.2.0.js",
@@ -311,21 +316,37 @@ System.config({
     ]
   },
   depCache: {
+    "api-client.js": [
+      "npm:aurelia-fetch-client@1.0.0-beta.1.1.0.js",
+      "npm:aurelia-router@1.0.0-beta.1.1.0.js",
+      "github:github/fetch@0.10.1.js",
+      "npm:aurelia-framework@1.0.0-beta.1.1.1.js",
+      "utils.js",
+      "local-storage-manager.js"
+    ],
+    "app.js": [
+      "npm:aurelia-router@1.0.0-beta.1.1.0.js",
+      "utils.js",
+      "npm:aurelia-framework@1.0.0-beta.1.1.1.js",
+      "local-storage-manager.js"
+    ],
     "blur-image.js": [
       "npm:aurelia-framework@1.0.0-beta.1.1.1.js"
     ],
+    "home.js": [
+      "npm:aurelia-framework@1.0.0-beta.1.1.1.js",
+      "api-client.js"
+    ],
+    "login.js": [
+      "npm:aurelia-fetch-client@1.0.0-beta.1.1.0.js",
+      "npm:aurelia-router@1.0.0-beta.1.1.0.js",
+      "github:github/fetch@0.10.1.js",
+      "npm:aurelia-framework@1.0.0-beta.1.1.1.js",
+      "utils.js",
+      "local-storage-manager.js"
+    ],
     "main.js": [
       "github:twbs/bootstrap@3.3.6.js"
-    ],
-    "users.js": [
-      "npm:aurelia-framework@1.0.0-beta.1.1.1.js",
-      "npm:aurelia-fetch-client@1.0.0-beta.1.1.0.js",
-      "github:github/fetch@0.10.1.js"
-    ],
-    "welcome.js": [
-      "npm:aurelia-framework@1.0.0-beta.1.1.1.js",
-      "npm:aurelia-fetch-client@1.0.0-beta.1.1.0.js",
-      "github:github/fetch@0.10.1.js"
     ]
   }
 });
