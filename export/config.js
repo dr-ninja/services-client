@@ -219,6 +219,7 @@ System.config({
       "login.js",
       "main.js",
       "nav-bar.html!github:systemjs/plugin-text@0.0.3.js",
+      "styles.css!github:systemjs/plugin-text@0.0.3.js",
       "users.html!github:systemjs/plugin-text@0.0.3.js",
       "users.js",
       "utils.js"

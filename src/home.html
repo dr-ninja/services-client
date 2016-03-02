@@ -1,9 +1,9 @@
 <template>
   <require from="blur-image"></require>
 
-  <button click.trigger="getAllClients()">check</button>
+  <button class="btn" click.trigger="getAllClients()">check</button>
 
-  <button click.trigger="newClient()">new</button>
+  <button class="btn" click.trigger="newClient()">new</button>
 
   <div repeat.for="client of clients">
     <p>Nome: ${client.name}</p>
