@@ -36,11 +36,12 @@ gulp.task('build-html', function() {
 gulp.task('build-css', function() {
   return gulp.src(paths.style)
     .pipe(plumber())
-    .pipe(changed(paths.output, {extension: '.css'}))
     .pipe(sourcemaps.init())
     .pipe(sass({indentedSyntax: true}))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest(paths.output));
+    .pipe(gulp.dest(paths.output))
+    .pipe(changed(paths.output, {extension: '.css'}))
+    .pipe(browserSync.stream());
 });
 
 // this task calls the clean task (located
