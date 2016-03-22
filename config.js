@@ -354,6 +354,8 @@ System.config({
       "npm:aurelia-templating@1.0.0-beta.1.1.0/aurelia-templating.js",
       "npm:core-js@2.0.3.js",
       "npm:core-js@2.0.3/client/shim.min.js",
+      "npm:moment@2.12.0.js",
+      "npm:moment@2.12.0/moment.js",
       "npm:process@0.11.2.js",
       "npm:process@0.11.2/browser.js"
     ]
