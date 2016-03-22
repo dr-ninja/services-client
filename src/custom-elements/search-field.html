@@ -1,0 +1,15 @@
+<template>
+  <require from="./svg-icons.html"></require>
+
+  <label class="field-container ${(focus || value)?'is-focus':''}">
+      <span class="placeholder ${value?'hidden':''}">
+        <svg-icons class="icon" icon="search"></svg-icons>
+        <span class="text">${placeholder}</span>
+      </span>
+      <input class="text-field-input" type.bind="type" value.bind="value"
+        focus.trigger="onFocus(true)" blur.trigger="onFocus(false)" />
+
+      <svg-icons if.one-way="value" class="delete-icon" icon="close-circle" click.trigger="resetValue()"></svg-icons>
+
+  </label>
+</template>

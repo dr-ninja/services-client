@@ -1,0 +1,30 @@
+=input-field($height: 40px)
+
+  .is-focus svg path
+    fill: $action-color
+
+  .is-readonly input
+    color: $primary-text-color
+
+  svg-icons
+    position: absolute
+    height: $height
+    
+    svg
+      padding: 12px
+      height: $height
+
+      path
+        fill: $primary-text-color
+        +transition(fill 200ms linear)
+
+  input
+    width: 100%
+    height: $height
+    background: transparent
+    border: none
+    border-bottom: 1px solid $border-color
+    text-indent: 40px
+
+    &[type="date"]
+      text-indent: 20px

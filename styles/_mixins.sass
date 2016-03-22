@@ -1,0 +1,330 @@
+// ADDS A BROWSER PREFIX TO THE PROPERTY
+=css3-prefix($property, $value)
+  -webkit-#{$property}: #{$value}
+  -khtml-#{$property}: #{$value}
+  -moz-#{$property}: #{$value}
+  -ms-#{$property}: #{$value}
+  -o-#{$property}: #{$value}
+  #{$property}: #{$value}
+
+
+=blend-gradient($mainColor, $gradientCenter, $gradientGlow, $bgPattern)
+  background: $mainColor
+
+  background:  url("#{$bgPattern}") center center, -webkit-radial-gradient(200% center, ellipse, rgba($gradientCenter,0.6), rgba($gradientCenter,0) 60%), -webkit-radial-gradient(-100% center, ellipse, rgba($gradientCenter,0.6), rgba($gradientCenter,0) 60%), -webkit-radial-gradient(center bottom, ellipse, $mainColor, $mainColor 10%, rgba($mainColor,0) 80%), -webkit-radial-gradient(center top, ellipse, $mainColor, $mainColor 10%, rgba($mainColor,0) 80%), -webkit-radial-gradient(left center, ellipse, $gradientCenter, rgba($gradientCenter, 0) 100%), -webkit-radial-gradient(right center, ellipse, $gradientCenter, rgba($mainColor, 0) 100%), -webkit-radial-gradient(left 60%, ellipse, $gradientGlow, rgba($mainColor, 0) 70%), -webkit-radial-gradient(right 40%, ellipse, $gradientGlow, rgba($mainColor, 0) 70%), -webkit-radial-gradient(right 60%, ellipse, $gradientGlow, rgba($mainColor, 0) 70%), -webkit-radial-gradient(left 40%, ellipse, $gradientGlow, rgba($mainColor, 0) 70%), $mainColor
+  background:  url("#{$bgPattern}") center center, -moz-radial-gradient(200% center, ellipse, rgba($gradientCenter,0.6), rgba($gradientCenter,0) 60%), -moz-radial-gradient(-100% center, ellipse, rgba($gradientCenter,0.6), rgba($gradientCenter,0) 60%), -moz-radial-gradient(center bottom, ellipse, $mainColor, $mainColor 10%, rgba($mainColor,0) 80%), -moz-radial-gradient(center top, ellipse, $mainColor, $mainColor 10%, rgba($mainColor,0) 80%), -moz-radial-gradient(left center, ellipse, $gradientCenter, rgba($gradientCenter, 0) 100%), -moz-radial-gradient(right center, ellipse, $gradientCenter, rgba($mainColor, 0) 100%), -moz-radial-gradient(left 60%, ellipse, $gradientGlow, rgba($mainColor, 0) 70%), -moz-radial-gradient(right 40%, ellipse, $gradientGlow, rgba($mainColor, 0) 70%), -moz-radial-gradient(right 60%, ellipse, $gradientGlow, rgba($mainColor, 0) 70%), -moz-radial-gradient(left 40%, ellipse, $gradientGlow, rgba($mainColor, 0) 70%), $mainColor
+  background:  url("#{$bgPattern}") center center, -ms-radial-gradient(200% center, ellipse, rgba($gradientCenter,0.6), rgba($gradientCenter,0) 60%), -ms-radial-gradient(-100% center, ellipse, rgba($gradientCenter,0.6), rgba($gradientCenter,0) 60%), -ms-radial-gradient(center bottom, ellipse, $mainColor, $mainColor 10%, rgba($mainColor,0) 80%), -ms-radial-gradient(center top, ellipse, $mainColor, $mainColor 10%, rgba($mainColor,0) 80%), -ms-radial-gradient(left center, ellipse, $gradientCenter, rgba($gradientCenter, 0) 100%), -ms-radial-gradient(right center, ellipse, $gradientCenter, rgba($mainColor, 0) 100%), -ms-radial-gradient(left 60%, ellipse, $gradientGlow, rgba($mainColor, 0) 70%), -ms-radial-gradient(right 40%, ellipse, $gradientGlow, rgba($mainColor, 0) 70%), -ms-radial-gradient(right 60%, ellipse, $gradientGlow, rgba($mainColor, 0) 70%), -ms-radial-gradient(left 40%, ellipse, $gradientGlow, rgba($mainColor, 0) 70%), $mainColor
+  background:  url("#{$bgPattern}") center center, radial-gradient(200% center, ellipse, rgba($gradientCenter,0.6), rgba($gradientCenter,0) 60%), radial-gradient(-100% center, ellipse, rgba($gradientCenter,0.6), rgba($gradientCenter,0) 60%), radial-gradient(center bottom, ellipse, $mainColor, $mainColor 10%, rgba($mainColor,0) 80%), radial-gradient(center top, ellipse, $mainColor, $mainColor 10%, rgba($mainColor,0) 80%), radial-gradient(left center, ellipse, $gradientCenter, rgba($gradientCenter, 0) 100%), radial-gradient(right center, ellipse, $gradientCenter, rgba($mainColor, 0) 100%), radial-gradient(left 60%, ellipse, $gradientGlow, rgba($mainColor, 0) 70%), radial-gradient(right 40%, ellipse, $gradientGlow, rgba($mainColor, 0) 70%), radial-gradient(right 60%, ellipse, $gradientGlow, rgba($mainColor, 0) 70%), radial-gradient(left 40%, ellipse, $gradientGlow, rgba($mainColor, 0) 70%), $mainColor
+
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#{$gradientCenter}", endColorstr="#{$mainColor}",GradientType=1 )
+
+  background-size: cover, 100% 100%
+  background-repeat: no-repeat
+
+
+
+
+// BACKGROUND GRADIENT TRIPPLE
+=background-gradient-preview($startColor: #eceadd, $middleColor: #e2e1d4, $endColor: #e9e6db)
+  $topMiddleColor: adjust_hue(mix($middleColor, $startColor, 50%), -20%)
+  $bottomMiddleColor: adjust_hue(mix($middleColor, $endColor, 50%), -20%)
+  $mColor: mix($startColor,$middleColor, 6%)
+  $mColor1: mix($endColor,$middleColor, 6%)
+  $highlight: saturate($middleColor, 20%)
+
+  background: $middleColor
+  background: url("resources/assets/bg-pattern.png"), -moz-radial-gradient(center, ellipse cover, rgba($startColor, 0.5) 0%, rgba($startColor, 0) 100%), -moz-radial-gradient(center, ellipse cover, rgba($highlight, 0.5) 0%, rgba($highlight, 0) 60%), -moz-radial-gradient(center, ellipse cover, rgba($highlight, 0.5) 0%, rgba($highlight, 0) 60%), -moz-linear-gradient(top, $startColor 0%, $topMiddleColor 25%, $mColor 40%, $middleColor 50%, $mColor1 60%, $bottomMiddleColor 75%, $endColor 100%)
+  background: url("resources/assets/bg-pattern.png"), -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba($startColor, 0.5))), -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba($highlight, 0.5)), color-stop(60%,rgba($highlight, 0))), -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba($highlight, 0.5)), color-stop(60%,rgba($highlight, 0))), -webkit-gradient(linear, left top, left bottom, color-stop(0%,$startColor), color-stop(25%,$topMiddleColor), color-stop(40%,$mColor), color-stop(50%,$middleColor), color-stop(60%,$mColor), color-stop(75%,$bottomMiddleColor), color-stop(100%,$endColor))
+  background: url("resources/assets/bg-pattern.png"), -webkit-radial-gradient(center, ellipse cover, rgba($startColor, 0.5) 0%,rgba($startColor, 0) 100%), -webkit-radial-gradient(center, ellipse cover, rgba($highlight, 0.5) 0%,rgba($highlight, 0) 60%), -webkit-radial-gradient(center, ellipse cover, rgba($highlight, 0.5) 0%,rgba($highlight, 0) 60%), -webkit-linear-gradient(top, $startColor 0%,$topMiddleColor 25%,$mColor 40%,$middleColor 50%,$mColor1 60%,$bottomMiddleColor 75%,$endColor 100%)
+  background: url("resources/assets/bg-pattern.png"), -o-radial-gradient(center, ellipse cover, rgba($startColor, 0.5) 0%,rgba($startColor, 0) 100%), -o-radial-gradient(center, ellipse cover, rgba($highlight, 0.5) 0%,rgba($highlight, 0) 60%), -o-radial-gradient(center, ellipse cover, rgba($highlight, 0.5) 0%,rgba($highlight, 0) 60%), -o-linear-gradient(top, $startColor 0%,$topMiddleColor 25%,$mColor 40%,$middleColor 50%,$mColor1 60%,$bottomMiddleColor 75%,$endColor 100%)
+  background: url("resources/assets/bg-pattern.png"), -ms-radial-gradient(center, ellipse cover, rgba($startColor, 0.5) 0%,rgba($startColor, 0) 100%), -ms-radial-gradient(center, ellipse cover, rgba($highlight, 0.5) 0%,rgba($highlight, 0) 60%), -ms-radial-gradient(center, ellipse cover, rgba($highlight, 0.5) 0%,rgba($highlight, 0) 60%), -ms-linear-gradient(top, $startColor 0%,$topMiddleColor 25%,$mColor 40%,$middleColor 50%,$mColor1 60%,$bottomMiddleColor 75%,$endColor 100%)
+  background: url("resources/assets/bg-pattern.png"), radial-gradient(ellipse at center, rgba($startColor, 0.5) 0%,rgba($startColor, 0) 100%), radial-gradient(ellipse at center, rgba($highlight, 0.5) 0%,rgba($highlight, 0) 60%), radial-gradient(ellipse at center, rgba($highlight, 0.5) 0%,rgba($highlight, 0) 60%), linear-gradient(to bottom, $startColor 0%,$topMiddleColor 25%,$mColor 40%,$middleColor 50%,$mColor1 60%,$bottomMiddleColor 75%,$endColor 100%)
+  background-position: center center, center center, right -310px center, left -310px center, center center
+  background-size: cover, cover, 600px 150%, 600px 150%, cover
+  background-attachment: fixed
+  background-repeat: no-repeat
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$startColor}', endColorstr='#{$middleColor}',GradientType=0 )
+
+// BACKGROUND GRADIENT TRIPPLE
+=background-gradient-triple($startColor: #eceadd, $middleColor: #e2e1d4, $endColor: #e9e6db)
+  background: $middleColor
+  background: -moz-linear-gradient(top, $startColor 0%, $middleColor 30%, $endColor 100%)
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$startColor), color-stop(30%,$middleColor), color-stop(100%,$endColor))
+  background: -webkit-linear-gradient(top, $startColor 0%,$middleColor 30%,$endColor 100%)
+  background: -o-linear-gradient(top, $startColor 0%,$middleColor 30%,$endColor 100%)
+  background: -ms-linear-gradient(top, $startColor 0%,$middleColor 30%,$endColor 100%)
+  background: linear-gradient(to bottom, $startColor 0%,$middleColor 30%,$endColor 100%)
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$startColor}', endColorstr='#{$middleColor}',GradientType=0 )
+
+// BACKGROUND GRADIENT
+=background-gradient($startColor: #3C3C3C, $endColor: #999999)
+  background-color: $startColor
+  background-image: -webkit-gradient(linear, left top, left bottom, from($startColor), to($endColor))
+  background-image: -webkit-linear-gradient(top, $startColor, $endColor)
+  background-image:    -moz-linear-gradient(top, $startColor, $endColor)
+  background-image:     -ms-linear-gradient(top, $startColor, $endColor)
+  background-image:      -o-linear-gradient(top, $startColor, $endColor)
+  background-image:         linear-gradient(top, $startColor, $endColor)
+  filter:            progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$startColor}', endColorStr='#{$endColor}')
+
+// BACKGROUND HORIZONTAL
+=background-horizontal($startColor: #3C3C3C, $endColor: #999999)
+  background-color: $startColor
+  background-image: -webkit-gradient(linear, left top, right top, from($startColor), to($endColor))
+  background-image: -webkit-linear-gradient(left, $startColor, $endColor)
+  background-image:    -moz-linear-gradient(left, $startColor, $endColor)
+  background-image:     -ms-linear-gradient(left, $startColor, $endColor)
+  background-image:      -o-linear-gradient(left, $startColor, $endColor)
+  background-image:         linear-gradient(left, $startColor, $endColor)
+  filter:            progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$startColor}', endColorStr='#{$endColor}', gradientType='1')
+
+// BACKGROUND RADIAL
+=background-radial($startColor: #FFFFFF, $startPos: 0%, $endColor: #000000, $endPos:100%)
+  background: -moz-radial-gradient(center, ellipse cover, $startColor $startPos, $endColor $endPos)
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop($startPos,$startColor), color-stop($endPos,$endColor))
+  background: -webkit-radial-gradient(center, ellipse cover, $startColor $startPos,$endColor $endPos)
+  background: -o-radial-gradient(center, ellipse cover, $startColor $startPos,$endColor $endPos)
+  background: -ms-radial-gradient(center, ellipse cover, $startColor $startPos,$endColor $endPos)
+  background: radial-gradient(ellipse at center, $startColor $startPos,$endColor $endPos)
+
+=background-diagonal-stripes($dir: 0deg, $bg-color: gray, $stripe-color: rgba(white, 0.5), $size: 40px)
+  $transparent: rgba(black, 0)
+  background-color: $bg-color
+  background-image: repeating-linear-gradient($dir,$transparent,$transparent $size * 0.2 - 1px,$stripe-color $size * 0.2 - 1px,$stripe-color $size * 0.2)
+
+// BACKGROUND SIZE
+=background-size($width: 100%, $height: $width)
+  @if (type-of($width) == 'number' and $height != null)
+    +css3-prefix('background-size', $width $height)
+  @else
+    +css3-prefix('background-size', $width)
+
+// BACKGROUND COLOR OPACITY
+=background-opacity($color: #000, $opacity: 0.85)
+  background: $color
+  background: rgba($color, $opacity)
+
+// BORDER RADIUS
+=border-radius($radius: 5px)
+  +css3-prefix('border-radius', $radius)
+
+=border-radius-separate($topLeftRadius: 5px, $topRightRadius: 5px, $bottomRightRadius: 5px, $bottomLeftRadius: 5px)
+  -webkit-border-top-left-radius:     $topLeftRadius
+  -webkit-border-top-right-radius:    $topRightRadius
+  -webkit-border-bottom-right-radius: $bottomRightRadius
+  -webkit-border-bottom-left-radius:  $bottomLeftRadius
+
+  -moz-border-radius-topleft:     $topLeftRadius
+  -moz-border-radius-topright:    $topRightRadius
+  -moz-border-radius-bottomright: $bottomRightRadius
+  -moz-border-radius-bottomleft:  $bottomLeftRadius
+
+  border-top-left-radius:     $topLeftRadius
+  border-top-right-radius:    $topRightRadius
+  border-bottom-right-radius: $bottomRightRadius
+  border-bottom-left-radius:  $bottomLeftRadius
+
+// BOX
+=box($orient: horizontal, $pack: center, $align: center)
+  display: -webkit-box
+  display: -moz-box
+  display: box
+
+  +css3-prefix('box-orient', $orient)
+  +css3-prefix('box-pack', $pack)
+  +css3-prefix('box-align', $align)
+
+// BOX RGBA
+=box-rgba($r: 60, $g: 3, $b: 12, $opacity: 0.23, $color: #3C3C3C)
+  background-color: transparent
+  background-color: rgba($r, $g, $b, $opacity)
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$color}',endColorstr='#{$color}')
+  zoom:   1
+
+
+// BOX SHADOW
+=box-shadow($x: 2px, $y: 2px, $blur: 5px, $offset: 0px, $color: rgba(0,0,0,.4), $inset: '')
+  @if ($inset != "")
+    +css3-prefix('box-shadow', $inset $x $y $blur $offset $color)
+  @else
+    +css3-prefix('box-shadow', $x $y $blur $offset $color)
+
+
+// NO BOX SHADOW
+=no-box-shadow()
+  +css3-prefix('box-shadow', none)
+
+// BOX SIZING
+=box-sizing($type: border-box)
+  +css3-prefix('box-sizing', $type)
+
+// COLUMNS
+=columns($count: 3, $gap: 10)
+  +css3-prefix('column-count', $count)
+  +css3-prefix('column-gap', $gap)
+
+// DOUBLE BORDERS
+=double-borders($colorOne: #3C3C3C, $colorTwo: #999999, $radius: 0)
+  border: 1px solid $colorOne
+
+  +css3-prefix('box-shadow', 0 0 0 1px $colorTwo)
+
+  +border-radius( $radius )
+
+// FLEX
+=flex($value: 1)
+  +css3-prefix('box-flex', $value)
+
+// FLIP
+=flip($scaleX: -1)
+  +css3-prefix('transform', scaleX($scaleX))
+  filter:            FlipH
+  -ms-filter:        "FlipH"
+
+// FONT FACE
+=font-face($fontFamily: myFont, $eotFileSrc: 'myFont.eot', $woffFileSrc: 'myFont.woff', $ttfFileSrc: 'myFont.ttf', $svgFileSrc: 'myFont.svg', $svgFontID: '#myFont')
+  font-family: $fontFamily
+  src: url($eotFileSrc)  format('eot'), url($woffFileSrc) format('woff'), url($ttfFileSrc)  format('truetype'), url($svgFileSrc + $svgFontID) format('svg')
+
+// OPACITY
+=opacity($opacity: 0.5)
+  $opacityMultiplied: ($opacity * 100)
+  filter:         alpha(opacity=$opacityMultiplied)
+  -ms-filter:     "progid:DXImageTransform.Microsoft.Alpha(Opacity=" + $opacityMultiplied + ")"
+  +css3-prefix('opacity', $opacity)
+
+
+// OUTLINE RADIUS
+=outline-radius($radius: 5px)
+  +css3-prefix('outline-radius', $radius)
+
+// RESIZE
+=resize($direction: both)
+  +css3-prefix('resize', $direction)
+
+// ROTATE
+=rotate($deg: 0, $m11: 0, $m12: 0, $m21: 0, $m22: 0)
+  +css3-prefix('transform', rotate($deg + deg))
+  filter: progid:DXImageTransform.Microsoft.Matrix(M11=#{$m11}, M12=#{$m12}, M21=#{$m21}, M22=#{$m22}, sizingMethod='auto expand')
+  zoom: 1
+
+// TEXT SHADOW
+=text-shadow($x: 2px, $y: 2px, $blur: 5px, $color: rgba(0,0,0,.4))
+  text-shadow: $x $y $blur $color
+
+// TRANSFORM
+=transform($params)
+  +css3-prefix('transform', $params)
+
+// TRANSFORM ORIGIN
+=transform-origin ($origin)
+  +css3-prefix('transform-origin', $origin)
+
+// TRANSFORM STYLE
+=transform-style($style: preserve-3d)
+  +css3-prefix('transform-style', $style)
+
+// TRANSITION
+=transition-transform($properties...)
+  -webkit-transition: -webkit-transform $properties
+  -khtml-transition: -khtml-transform $properties
+  -moz-transition: -moz-transform $properties
+  -ms-transition: -ms-transform $properties
+  -o-transition: -o-transform $properties
+  transition: transform $properties
+
+=transition($properties...)
+  @if length($properties) >= 1
+    +css3-prefix('transition', $properties)
+  @else
+    +css3-prefix('transition',  "all 0.2s ease-in-out 0s")
+
+
+// TRIPLE BORDERS
+=triple-borders($colorOne: #3C3C3C, $colorTwo: #999999, $colorThree: #000000, $radius: 0)
+  border: 1px solid $colorOne
+
+  +border-radius($radius)
+
+  +css3-prefix('box-shadow', "0 0 0 1px #{$colorTwo}, 0 0 0 2px #{$colorThree}")
+
+=placeholder
+  &::-webkit-input-placeholder
+    @content
+  &:-moz-placeholder
+    @content
+  &::-moz-placeholder
+    @content
+  &:-ms-input-placeholder
+    @content
+
+// KEYFRAMES
+=keyframes($animation-name)
+  @-webkit-keyframes #{$animation-name}
+    @content
+  @-moz-keyframes #{$animation-name}
+    @content
+  @-ms-keyframes #{$animation-name}
+    @content
+  @keyframes #{$animation-name}
+    @content
+
+
+// ANIMATION
+=animation($str)
+  +css3-prefix('animation', $str)
+
+// TRUNCATE
+=text-truncate
+  overflow: hidden
+  text-overflow: ellipsis
+  white-space: nowrap
+
+=image-set($name,$extension)
+  background-image: url("resources/assets/#{$name}.#{$extension}")
+  background-image: -webkit-image-set(url("resources/assets/#{$name}.#{$extension}") 1x, url("resources/assets/#{$name}_2x.#{$extension}") 2x)
+  background-image: -moz-image-set(url("resources/assets/#{$name}.#{$extension}") 1x, url("resources/assets/#{$name}_2x.#{$extension}") 2x)
+  background-image: -o-image-set(url("resources/assets/#{$name}.#{$extension}") 1x, url("resources/assets/#{$name}_2x.#{$extension}") 2x)
+  background-image: -ms-image-set(url("resources/assets/#{$name}.#{$extension}") 1x, url("resources/assets/#{$name}_2x.#{$extension}") 2x)
+
+
+// IMAGE SET
+=png-image-set($image)
+  +image-set($image, "png")
+
+=jpg-image-set($image)
+  +image-set($image, "jpg")
+
+=gif-image-set($image)
+  +image-set($image, "gif")
+
+=link($color)
+  text-decoration: none
+  color: #{$color}
+
+  &:active, &:visited
+    color: #{$color}
+
+  &:hover
+    color: #{$color}
+    text-decoration: underline
+
+=clearfix
+  &:after
+    content: ""
+    display: table
+    clear: both
+
+=text-clamp($lines: 2, $line-height: false)
+  overflow: hidden
+  display: -webkit-box
+  -webkit-box-orient: vertical
+  -webkit-line-clamp: $lines
+
+  // Fallback for non-Webkit browsers
+  // (won't show `…` at the end of the block)
+  @if $line-height
+    max-height: $line-height * $lines * 1px
+
+=filter($params)
+  +css3-prefix('filter', $params)

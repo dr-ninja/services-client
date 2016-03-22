@@ -1,0 +1,68 @@
+<template>
+  <!--<require from="../custom-elements/pickadate"></require>-->
+  <!-- <pickadate></pickadate>-->
+  <header class="search-clients-header">
+    <span class="label right" click.trigger="toggleEditMode()">${readonly ? 'Editar' : ''}</span>
+    <span if.one-way="!readonly" class="label right" click.trigger="save()">${(client.hasChanges && client.data.name) ? 'Salvar' : ''}</span>
+  </header>
+
+  <div class="client-form">
+
+    <input-field class="input name"
+                 type.one-time="'text'"
+                 value.two-way="client.data.name"
+                 placeholder.one-time="'Nome'"
+                 readonly.one-way="readonly"
+                 icon.one-time="''">
+    </input-field>
+
+    <input-field class="input nif"
+                 type.one-time="'number'"
+                 value.two-way="client.data.nif"
+                 placeholder.one-time="'NIF'"
+                 readonly.one-way="readonly"
+                 icon.one-time="''">
+    </input-field>
+
+    <input-field class="input phone"
+                 type.one-time="'number'"
+                 value.two-way="client.data.phone"
+                 placeholder.one-time="'Telefone'"
+                 readonly.one-way="readonly"
+                 icon.one-time="'mobile'">
+    </input-field>
+
+    <input-field class="input email"
+                 type.one-time="'text'"
+                 value.two-way="client.data.email"
+                 placeholder.one-time="'Email'"
+                 readonly.one-way="readonly"
+                 icon.one-time="'mail'">
+    </input-field>
+
+    <input-field class="input facebook"
+                 type.one-time="'text'"
+                 value.two-way="client.data.facebook"
+                 placeholder.one-time="'Facebook'"
+                 readonly.one-way="readonly"
+                 icon.one-time="'facebook'">
+    </input-field>
+
+    <input-field class="input address"
+                 type.one-time="'text'"
+                 value.two-way="client.data.address"
+                 placeholder.one-time="'Morada'"
+                 readonly.one-way="readonly"
+                 icon.one-time="'address'">
+    </input-field>
+
+    <input-field class="input birthday"
+                 type.one-time="'date'"
+                 placeholder.one-time="'Aniversário'"
+                 value.two-way="client.data.birthday"
+                 readonly.one-way="readonly"
+                 icon.one-time="'bday'">
+    </input-field>
+  </div>
+
+</template>

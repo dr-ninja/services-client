@@ -14,6 +14,7 @@ System.config({
   },
   map: {
     "aurelia-animator-css": "npm:aurelia-animator-css@1.0.0-beta.1.1.0",
+    "aurelia-binding": "npm:aurelia-binding@1.0.0-beta.1.2.2",
     "aurelia-bootstrapper": "npm:aurelia-bootstrapper@1.0.0-beta.1.1.1",
     "aurelia-fetch-client": "npm:aurelia-fetch-client@1.0.0-beta.1.1.0",
     "aurelia-framework": "npm:aurelia-framework@1.0.0-beta.1.1.1",
@@ -26,11 +27,15 @@ System.config({
     "aurelia-templating-router": "npm:aurelia-templating-router@1.0.0-beta.1.1.0",
     "babel": "npm:babel-core@5.8.35",
     "babel-runtime": "npm:babel-runtime@5.8.35",
-    "bootstrap": "github:twbs/bootstrap@3.3.6",
     "core-js": "npm:core-js@2.0.3",
     "fetch": "github:github/fetch@0.10.1",
     "font-awesome": "npm:font-awesome@4.5.0",
+    "moment": "npm:moment@2.12.0",
+    "pikaday": "github:dbushell/Pikaday@1.4.0",
     "text": "github:systemjs/plugin-text@0.0.3",
+    "github:dbushell/Pikaday@1.4.0": {
+      "css": "github:systemjs/plugin-css@0.1.20"
+    },
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
     },
@@ -42,9 +47,6 @@ System.config({
     },
     "github:jspm/nodelibs-util@0.1.0": {
       "util": "npm:util@0.10.3"
-    },
-    "github:twbs/bootstrap@3.3.6": {
-      "jquery": "github:components/jquery@2.2.0"
     },
     "npm:assert@1.3.0": {
       "util": "npm:util@0.10.3"
@@ -59,6 +61,11 @@ System.config({
       "aurelia-pal": "npm:aurelia-pal@1.0.0-beta.1.1.1",
       "aurelia-task-queue": "npm:aurelia-task-queue@1.0.0-beta.1.1.0",
       "core-js": "npm:core-js@2.0.3"
+    },
+    "npm:aurelia-binding@1.0.0-beta.1.2.2": {
+      "aurelia-metadata": "npm:aurelia-metadata@1.0.0-beta.1.1.6",
+      "aurelia-pal": "npm:aurelia-pal@1.0.0-beta.1.1.1",
+      "aurelia-task-queue": "npm:aurelia-task-queue@1.0.0-beta.1.1.1"
     },
     "npm:aurelia-bootstrapper@1.0.0-beta.1.1.1": {
       "aurelia-event-aggregator": "npm:aurelia-event-aggregator@1.0.0-beta.1.1.0",
@@ -122,6 +129,9 @@ System.config({
       "aurelia-pal": "npm:aurelia-pal@1.0.0-beta.1.1.1",
       "core-js": "npm:core-js@2.0.3"
     },
+    "npm:aurelia-metadata@1.0.0-beta.1.1.6": {
+      "aurelia-pal": "npm:aurelia-pal@1.0.0-beta.1.1.1"
+    },
     "npm:aurelia-pal-browser@1.0.0-beta.1.1.2": {
       "aurelia-pal": "npm:aurelia-pal@1.0.0-beta.1.1.1",
       "core-js": "npm:core-js@2.0.3"
@@ -140,6 +150,9 @@ System.config({
       "core-js": "npm:core-js@2.0.3"
     },
     "npm:aurelia-task-queue@1.0.0-beta.1.1.0": {
+      "aurelia-pal": "npm:aurelia-pal@1.0.0-beta.1.1.1"
+    },
+    "npm:aurelia-task-queue@1.0.0-beta.1.1.1": {
       "aurelia-pal": "npm:aurelia-pal@1.0.0-beta.1.1.1"
     },
     "npm:aurelia-templating-binding@1.0.0-beta.1.1.0": {
@@ -193,6 +206,9 @@ System.config({
     "npm:inherits@2.0.1": {
       "util": "github:jspm/nodelibs-util@0.1.0"
     },
+    "npm:moment@2.12.0": {
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
     "npm:path-browserify@0.0.0": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
@@ -206,36 +222,58 @@ System.config({
   },
   bundles: {
     "app-build.js": [
+      "account-api.js",
       "api-client.js",
       "app.html!github:systemjs/plugin-text@0.0.3.js",
       "app.js",
+      "appointments.html!github:systemjs/plugin-text@0.0.3.js",
+      "appointments.js",
+      "backupManager.js",
       "blur-image.js",
       "child-router.html!github:systemjs/plugin-text@0.0.3.js",
       "child-router.js",
-      "home.html!github:systemjs/plugin-text@0.0.3.js",
-      "home.js",
+      "client-factory.js",
+      "client.html!github:systemjs/plugin-text@0.0.3.js",
+      "client.js",
+      "clients-statistics.html!github:systemjs/plugin-text@0.0.3.js",
+      "clients-statistics.js",
+      "clients.html!github:systemjs/plugin-text@0.0.3.js",
+      "clients.js",
+      "custom-elements/input-field.html!github:systemjs/plugin-text@0.0.3.js",
+      "custom-elements/input-field.js",
+      "custom-elements/keep.js",
+      "custom-elements/pickadate.html!github:systemjs/plugin-text@0.0.3.js",
+      "custom-elements/pickadate.js",
+      "custom-elements/search-field.html!github:systemjs/plugin-text@0.0.3.js",
+      "custom-elements/search-field.js",
+      "custom-elements/svg-icons.html!github:systemjs/plugin-text@0.0.3.js",
       "local-storage-manager.js",
       "login.html!github:systemjs/plugin-text@0.0.3.js",
       "login.js",
       "main.js",
+      "multi-observer.js",
       "nav-bar.html!github:systemjs/plugin-text@0.0.3.js",
+      "nav-bar.js",
+      "products.html!github:systemjs/plugin-text@0.0.3.js",
+      "products.js",
+      "service-types.html!github:systemjs/plugin-text@0.0.3.js",
+      "service-types.js",
+      "services.html!github:systemjs/plugin-text@0.0.3.js",
+      "services.js",
       "styles.css!github:systemjs/plugin-text@0.0.3.js",
-      "users.html!github:systemjs/plugin-text@0.0.3.js",
-      "users.js",
-      "utils.js"
+      "utils.js",
+      "widgets/client-form.html!github:systemjs/plugin-text@0.0.3.js",
+      "widgets/client-form.js"
     ],
     "aurelia.js": [
-      "github:components/jquery@2.2.0.js",
-      "github:components/jquery@2.2.0/jquery.js",
       "github:jspm/nodelibs-process@0.1.2.js",
       "github:jspm/nodelibs-process@0.1.2/index.js",
-      "github:twbs/bootstrap@3.3.6.js",
-      "github:twbs/bootstrap@3.3.6/css/bootstrap.css!github:systemjs/plugin-text@0.0.3.js",
-      "github:twbs/bootstrap@3.3.6/js/bootstrap.js",
       "npm:aurelia-animator-css@1.0.0-beta.1.1.0.js",
       "npm:aurelia-animator-css@1.0.0-beta.1.1.0/aurelia-animator-css.js",
       "npm:aurelia-binding@1.0.0-beta.1.1.1.js",
       "npm:aurelia-binding@1.0.0-beta.1.1.1/aurelia-binding.js",
+      "npm:aurelia-binding@1.0.0-beta.1.2.2.js",
+      "npm:aurelia-binding@1.0.0-beta.1.2.2/aurelia-binding.js",
       "npm:aurelia-bootstrapper@1.0.0-beta.1.1.1.js",
       "npm:aurelia-bootstrapper@1.0.0-beta.1.1.1/aurelia-bootstrapper.js",
       "npm:aurelia-dependency-injection@1.0.0-beta.1.1.2.js",
@@ -260,6 +298,8 @@ System.config({
       "npm:aurelia-logging@1.0.0-beta.1.1.1/aurelia-logging.js",
       "npm:aurelia-metadata@1.0.0-beta.1.1.3.js",
       "npm:aurelia-metadata@1.0.0-beta.1.1.3/aurelia-metadata.js",
+      "npm:aurelia-metadata@1.0.0-beta.1.1.6.js",
+      "npm:aurelia-metadata@1.0.0-beta.1.1.6/aurelia-metadata.js",
       "npm:aurelia-pal-browser@1.0.0-beta.1.1.2.js",
       "npm:aurelia-pal-browser@1.0.0-beta.1.1.2/aurelia-pal-browser.js",
       "npm:aurelia-pal@1.0.0-beta.1.1.1.js",
@@ -272,6 +312,8 @@ System.config({
       "npm:aurelia-router@1.0.0-beta.1.1.0/aurelia-router.js",
       "npm:aurelia-task-queue@1.0.0-beta.1.1.0.js",
       "npm:aurelia-task-queue@1.0.0-beta.1.1.0/aurelia-task-queue.js",
+      "npm:aurelia-task-queue@1.0.0-beta.1.1.1.js",
+      "npm:aurelia-task-queue@1.0.0-beta.1.1.1/aurelia-task-queue.js",
       "npm:aurelia-templating-binding@1.0.0-beta.1.1.0.js",
       "npm:aurelia-templating-binding@1.0.0-beta.1.1.0/aurelia-templating-binding.js",
       "npm:aurelia-templating-resources@1.0.0-beta.1.1.0.js",
@@ -317,13 +359,23 @@ System.config({
     ]
   },
   depCache: {
-    "api-client.js": [
+    "account-api.js": [
       "npm:aurelia-fetch-client@1.0.0-beta.1.1.0.js",
       "npm:aurelia-router@1.0.0-beta.1.1.0.js",
       "github:github/fetch@0.10.1.js",
       "npm:aurelia-framework@1.0.0-beta.1.1.1.js",
       "utils.js",
       "local-storage-manager.js"
+    ],
+    "api-client.js": [
+      "npm:aurelia-fetch-client@1.0.0-beta.1.1.0.js",
+      "github:github/fetch@0.10.1.js",
+      "npm:aurelia-framework@1.0.0-beta.1.1.1.js",
+      "utils.js",
+      "local-storage-manager.js",
+      "client-factory.js",
+      "backupManager.js",
+      "npm:moment@2.12.0.js"
     ],
     "app.js": [
       "npm:aurelia-router@1.0.0-beta.1.1.0.js",
@@ -334,20 +386,45 @@ System.config({
     "blur-image.js": [
       "npm:aurelia-framework@1.0.0-beta.1.1.1.js"
     ],
-    "home.js": [
+    "client.js": [
       "npm:aurelia-framework@1.0.0-beta.1.1.1.js",
       "api-client.js"
     ],
-    "login.js": [
-      "npm:aurelia-fetch-client@1.0.0-beta.1.1.0.js",
-      "npm:aurelia-router@1.0.0-beta.1.1.0.js",
-      "github:github/fetch@0.10.1.js",
+    "clients.js": [
       "npm:aurelia-framework@1.0.0-beta.1.1.1.js",
-      "utils.js",
-      "local-storage-manager.js"
+      "api-client.js",
+      "npm:aurelia-router@1.0.0-beta.1.1.0.js",
+      "npm:aurelia-binding@1.0.0-beta.1.2.2.js"
     ],
-    "main.js": [
-      "github:twbs/bootstrap@3.3.6.js"
+    "custom-elements/input-field.js": [
+      "npm:aurelia-framework@1.0.0-beta.1.1.1.js"
+    ],
+    "custom-elements/keep.js": [
+      "npm:aurelia-framework@1.0.0-beta.1.1.1.js"
+    ],
+    "custom-elements/pickadate.js": [
+      "npm:aurelia-framework@1.0.0-beta.1.1.1.js",
+      "github:dbushell/Pikaday@1.4.0.js"
+    ],
+    "custom-elements/search-field.js": [
+      "npm:aurelia-framework@1.0.0-beta.1.1.1.js"
+    ],
+    "login.js": [
+      "npm:aurelia-framework@1.0.0-beta.1.1.1.js",
+      "account-api.js"
+    ],
+    "multi-observer.js": [
+      "npm:aurelia-framework@1.0.0-beta.1.1.1.js",
+      "npm:aurelia-binding@1.0.0-beta.1.2.2.js"
+    ],
+    "nav-bar.js": [
+      "npm:aurelia-framework@1.0.0-beta.1.1.1.js",
+      "account-api.js",
+      "utils.js"
+    ],
+    "widgets/client-form.js": [
+      "npm:aurelia-framework@1.0.0-beta.1.1.1.js",
+      "multi-observer.js"
     ]
   }
 });

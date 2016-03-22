@@ -1,0 +1,31 @@
+<template>
+  <require from="./custom-elements/svg-icons.html"></require>
+
+  <section class="clients-section">
+    <section class="search-clients-section">
+      <header class="search-clients-header">
+        <svg-icons class="icon left" icon="refresh" click.trigger="getAllClients()"></svg-icons>
+        <h3 class="title">Clientes</h3>
+        <svg-icons class="icon right" icon="add" click.trigger="newForm()"></svg-icons>
+      </header>
+      <search-field class="clients-search" type.one-time="'text'" value.two-way="filterExpr" placeholder.one-time="'Pesquisar'"></search-field>
+
+      <ul class="clients-list">
+        <li class="client ${($parent.selectedIdx == $index) ? 'is-selected' : ''}" repeat.for="client of filteredClients" click.trigger="$parent.selectClient(client, $index)">
+            <p class="name">${client.data.name}</p>
+            <svg class="icon red" if.bind="$parent.selectedIdx == $index" click.trigger="$parent.deleteRow(client)" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                viewBox="0 0 510 510" xml:space="preserve">
+              <path d="M255,0C114.75,0,0,114.75,0,255s114.75,255,255,255s255-114.75,255-255S395.25,0,255,0z M382.5,280.5h-255v-51h255V280.5z"></path>
+            </svg>
+
+        </li>
+      </ul>
+    </section>
+
+    <section class="client-details-section">
+      <router-view></router-view>
+    </section>
+
+  </section>
+
+</template>

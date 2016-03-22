@@ -1,12 +1,14 @@
-import 'bootstrap';
-
 export function configure(aurelia) {
   aurelia.use
     .standardConfiguration()
-    .developmentLogging();
+    .developmentLogging()
+    .globalResources('../dist/custom-elements/keep')
+    .globalResources('../dist/custom-elements/search-field')
+    .globalResources('../dist/custom-elements/input-field')
+    ;
 
   //Uncomment the line below to enable animation.
-  //aurelia.use.plugin('aurelia-animator-css');
+ // aurelia.use.plugin('aurelia-animator-css');
   //if the css animator is enabled, add swap-order="after" to all router-view elements
 
   //Anyone wanting to use HTMLImports to load views, will need to install the following plugin.

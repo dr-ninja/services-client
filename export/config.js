@@ -212,8 +212,10 @@ System.config({
       "blur-image.js",
       "child-router.html!github:systemjs/plugin-text@0.0.3.js",
       "child-router.js",
-      "home.html!github:systemjs/plugin-text@0.0.3.js",
-      "home.js",
+      "clients.html!github:systemjs/plugin-text@0.0.3.js",
+      "clients.js",
+      "custom-elements/keep.js",
+      "custom-elements/svg-icons.html!github:systemjs/plugin-text@0.0.3.js",
       "local-storage-manager.js",
       "login.html!github:systemjs/plugin-text@0.0.3.js",
       "login.js",
@@ -334,9 +336,12 @@ System.config({
     "blur-image.js": [
       "npm:aurelia-framework@1.0.0-beta.1.1.1.js"
     ],
-    "home.js": [
+    "clients.js": [
       "npm:aurelia-framework@1.0.0-beta.1.1.1.js",
       "api-client.js"
+    ],
+    "custom-elements/keep.js": [
+      "npm:aurelia-framework@1.0.0-beta.1.1.1.js"
     ],
     "login.js": [
       "npm:aurelia-fetch-client@1.0.0-beta.1.1.0.js",

@@ -1,0 +1,39 @@
+nav-bar
+  position: fixed
+  top: 0
+  left: 0
+  bottom: 0
+  width: $nav-bar-width
+  background-color: $bg-color
+  border-right: 1px solid $border-color-darker
+
+  .account-options, .nav-link
+    position: relative
+    display: block
+    height: 50px
+    text-align: center
+    margin: 10px 0
+
+    &.active path, > a:hover path
+      fill: $action-color
+
+    > a
+      display: inline-block
+      cursor: pointer
+
+      svg
+        height: 50px
+        width: 50px
+
+        path
+          +transition(all 200ms linear)
+          fill: $border-color-darker
+        
+  .account-options
+    height: 40px
+    border-bottom: 1px solid $border-color-darker
+    margin: 0
+
+    > a svg
+      height: 40px
+      width: 40px
