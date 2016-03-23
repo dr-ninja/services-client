@@ -24,6 +24,7 @@ export class AccountApi {
 
   logOut() {
     this.localStorageMgr.store('auth', '');
+    this.router.navigate('login');
   }
 
 

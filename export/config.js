@@ -408,7 +408,7 @@ System.config({
     ],
     "widgets/client-form.js": [
       "aurelia-framework",
-      "../multi-observer"
+      "multi-observer"
     ]
   }
 });

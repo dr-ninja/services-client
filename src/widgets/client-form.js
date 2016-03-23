@@ -1,5 +1,5 @@
 import {inject, bindable} from 'aurelia-framework';
-import {MultiObserver} from '../multi-observer';
+import {MultiObserver} from 'multi-observer';
 
 @inject(Element, MultiObserver)
 export class ClientForm {
