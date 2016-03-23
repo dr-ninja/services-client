@@ -1,5 +1,5 @@
 import {inject} from 'aurelia-framework';
-import {AccountApi} from './account-api';
+import {AccountApi} from 'account-api';
 
 @inject(AccountApi)
 export class Welcome {

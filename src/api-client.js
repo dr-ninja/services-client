@@ -2,10 +2,10 @@ import {HttpClient} from 'aurelia-fetch-client';
 
 import 'fetch';
 import {inject} from 'aurelia-framework';
-import {Utils} from './utils';
-import {LocalStorageManager} from './local-storage-manager';
-import {ClientFactory} from './client-factory';
-import {BackupManager} from './backupManager';
+import {Utils} from 'utils';
+import {LocalStorageManager} from 'local-storage-manager';
+import {ClientFactory} from 'client-factory';
+import {BackupManager} from 'backupManager';
 import moment from 'moment';
 
 @inject(HttpClient, Utils, LocalStorageManager, ClientFactory)

@@ -1,5 +1,5 @@
 import {inject, bindable} from 'aurelia-framework';
-import {ApiClient} from './api-client';
+import {ApiClient} from 'api-client';
 import {Router} from 'aurelia-router';
 import {BindingEngine} from 'aurelia-binding';
 

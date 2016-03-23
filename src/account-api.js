@@ -2,8 +2,8 @@ import {HttpClient} from 'aurelia-fetch-client';
 import {Router} from 'aurelia-router';
 import 'fetch';
 import {inject} from 'aurelia-framework';
-import {Utils} from './utils';
-import {LocalStorageManager} from './local-storage-manager';
+import {Utils} from 'utils';
+import {LocalStorageManager} from 'local-storage-manager';
 
 @inject(HttpClient, Router, Utils, LocalStorageManager)
 export class AccountApi {

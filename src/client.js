@@ -1,5 +1,5 @@
 import {inject} from 'aurelia-framework';
-import {ApiClient} from './api-client';
+import {ApiClient} from 'api-client';
 
 @inject(ApiClient)
 export class Client {

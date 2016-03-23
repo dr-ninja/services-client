@@ -1,6 +1,6 @@
 import {inject, bindable} from 'aurelia-framework';
-import {AccountApi} from './account-api';
-import {Utils} from './utils';
+import {AccountApi} from 'account-api';
+import {Utils} from 'utils';
 
 @inject(AccountApi, Utils)
 export class NavBar {

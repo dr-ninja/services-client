@@ -1,7 +1,7 @@
 import {Redirect} from 'aurelia-router';
-import {Utils} from './utils';
+import {Utils} from 'utils';
 import {inject} from 'aurelia-framework';
-import {LocalStorageManager} from './local-storage-manager';
+import {LocalStorageManager} from 'local-storage-manager';
 
 export class App {
   configureRouter(config, router) {

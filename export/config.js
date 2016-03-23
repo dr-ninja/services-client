@@ -347,35 +347,35 @@ System.config({
       "aurelia-router",
       "fetch",
       "aurelia-framework",
-      "./utils",
-      "./local-storage-manager"
+      "utils",
+      "local-storage-manager"
     ],
     "api-client.js": [
       "aurelia-fetch-client",
       "fetch",
       "aurelia-framework",
-      "./utils",
-      "./local-storage-manager",
-      "./client-factory",
-      "./backupManager",
+      "utils",
+      "local-storage-manager",
+      "client-factory",
+      "backupManager",
       "moment"
     ],
     "app.js": [
       "aurelia-router",
-      "./utils",
+      "utils",
       "aurelia-framework",
-      "./local-storage-manager"
+      "local-storage-manager"
     ],
     "blur-image.js": [
       "aurelia-framework"
     ],
     "client.js": [
       "aurelia-framework",
-      "./api-client"
+      "api-client"
     ],
     "clients.js": [
       "aurelia-framework",
-      "./api-client",
+      "api-client",
       "aurelia-router",
       "aurelia-binding"
     ],
@@ -394,7 +394,7 @@ System.config({
     ],
     "login.js": [
       "aurelia-framework",
-      "./account-api"
+      "account-api"
     ],
     "multi-observer.js": [
       "aurelia-framework",
@@ -402,8 +402,8 @@ System.config({
     ],
     "nav-bar.js": [
       "aurelia-framework",
-      "./account-api",
-      "./utils"
+      "account-api",
+      "utils"
     ],
     "widgets/client-form.js": [
       "aurelia-framework",
