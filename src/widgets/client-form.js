@@ -18,7 +18,7 @@ export class ClientForm {
     if (this.client) {
       this.attachObserver();
       this.clientDataChanged();
-      this.readonly = this.client.data.id;
+      this.readonly = !!this.client.data.id;
     }
   }
 

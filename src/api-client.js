@@ -36,7 +36,9 @@ export class ApiClient {
       } else {
         this.http.fetch('clients', {
           method: 'get',
-          credentials: 'include'
+          headers: {
+            Authorization: 'Bearer ' + this.localStorageMgr.getKey('auth')
+          }
         })
           .then(
             response => response.json().then(data => {
@@ -73,7 +75,9 @@ export class ApiClient {
     return new Promise((resolve, reject)=>{
       return this.http.fetch('clients', {
         method: 'post',
-        credentials: 'include',
+        headers: {
+          Authorization: 'Bearer ' + this.localStorageMgr.getKey('auth')
+        },
         body: JSON.stringify(client.data).replace(/""/ig, null)
       })
         .then(response => {
@@ -82,7 +86,7 @@ export class ApiClient {
             resolve(data.id);
           });
         }, error => {
-          this.localStorageMgr.store('auth', false);
+         // this.localStorageMgr.store('auth', false);
           throw error;
         });
     });
@@ -91,14 +95,15 @@ export class ApiClient {
   editClient(client) {
     return this.http.fetch('clients/' + client.data.id, {
       method: 'put',
-      credentials: 'include',
-      header: {},
+      headers: {
+        Authorization: 'Bearer ' + this.localStorageMgr.getKey('auth')
+      },
       body: JSON.stringify(client.data).replace(/""/ig, null)
     })
       .then(response => {
         client.saveChanges();
       }, error => {
-        this.localStorageMgr.store('auth', false);
+       // this.localStorageMgr.store('auth', false);
         throw error;
       });
   }
@@ -106,13 +111,14 @@ export class ApiClient {
   deleteClient(client) {
     return this.http.fetch('clients/' + client.data.id, {
       method: 'delete',
-      credentials: 'include',
-      header: {}
+      headers: {
+        Authorization: 'Bearer ' + this.localStorageMgr.getKey('auth')
+      }
     })
       .then(response => {
         this.clientFactory.deleteClient(client);
       }, error => {
-        this.localStorageMgr.store('auth', false);
+      //  this.localStorageMgr.store('auth', false);
         throw error;
       });
   }

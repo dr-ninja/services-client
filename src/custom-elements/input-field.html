@@ -3,8 +3,8 @@
 
   <label class="field-container ${focus?'is-focus':''} ${readonly?'is-readonly':''}">
     <svg-icons class="icon" icon="${icon}"></svg-icons>
-    <input class="text-field-input" type.bind="type" value.bind="value"
-           focus.trigger="onFocus(true)" blur.trigger="onFocus(false)" placeholder="${placeholder}" readonly.two-way="readonly" />
+    <input class="text-field-input" type.bind="type" value.bind="value" focus.trigger="onFocus(true)"
+           blur.trigger="onFocus(false)" placeholder="${placeholder}" readonly.one-way="readonly" />
   </label>
 
 </template>

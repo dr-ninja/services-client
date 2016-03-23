@@ -43,21 +43,18 @@ export class AccountApi {
   logIn(loginData) {
     this.http.fetch('login', {
       method: 'post',
-      credentials: 'include',
       body: loginData
     })
       .then(response => {
         response.json().then(data => {
           this.utils.isAuthenticated = true;
-          this.localStorageMgr.store('auth', true);
-          this.utils.username = data.username;
+          this.localStorageMgr.store('auth', data.token);
           this.router.navigate('clients');
         });
       }, error => {
         console.log(error);
         this.utils.isAuthenticated = false;
         this.localStorageMgr.store('auth', false);
-        this.utils.username = '';
       });
   }
 }

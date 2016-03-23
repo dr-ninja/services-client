@@ -206,6 +206,52 @@ System.config({
     }
   },
   bundles: {
+    "app-build.js": [
+      "account-api.js",
+      "api-client.js",
+      "app.html!github:systemjs/plugin-text@0.0.3.js",
+      "app.js",
+      "appointments.html!github:systemjs/plugin-text@0.0.3.js",
+      "appointments.js",
+      "backupManager.js",
+      "blur-image.js",
+      "child-router.html!github:systemjs/plugin-text@0.0.3.js",
+      "child-router.js",
+      "client-factory.js",
+      "client.html!github:systemjs/plugin-text@0.0.3.js",
+      "client.js",
+      "clients-statistics.html!github:systemjs/plugin-text@0.0.3.js",
+      "clients-statistics.js",
+      "clients.html!github:systemjs/plugin-text@0.0.3.js",
+      "clients.js",
+      "custom-elements/input-field.html!github:systemjs/plugin-text@0.0.3.js",
+      "custom-elements/input-field.js",
+      "custom-elements/keep.js",
+      "custom-elements/pickadate.html!github:systemjs/plugin-text@0.0.3.js",
+      "custom-elements/pickadate.js",
+      "custom-elements/search-field.html!github:systemjs/plugin-text@0.0.3.js",
+      "custom-elements/search-field.js",
+      "custom-elements/svg-icons.html!github:systemjs/plugin-text@0.0.3.js",
+      "local-storage-manager.js",
+      "login.html!github:systemjs/plugin-text@0.0.3.js",
+      "login.js",
+      "main.js",
+      "multi-observer.js",
+      "nav-bar.html!github:systemjs/plugin-text@0.0.3.js",
+      "nav-bar.js",
+      "npm:moment@2.12.0.js",
+      "npm:moment@2.12.0/moment.js",
+      "products.html!github:systemjs/plugin-text@0.0.3.js",
+      "products.js",
+      "service-types.html!github:systemjs/plugin-text@0.0.3.js",
+      "service-types.js",
+      "services.html!github:systemjs/plugin-text@0.0.3.js",
+      "services.js",
+      "styles.css!github:systemjs/plugin-text@0.0.3.js",
+      "utils.js",
+      "widgets/client-form.html!github:systemjs/plugin-text@0.0.3.js",
+      "widgets/client-form.js"
+    ],
     "aurelia.js": [
       "github:github/fetch@0.10.1.js",
       "github:github/fetch@0.10.1/fetch.js",
@@ -290,124 +336,78 @@ System.config({
       "npm:aurelia-templating-router@1.0.0-beta.1.1.2/router-view.js",
       "npm:aurelia-templating@1.0.0-beta.1.1.4.js",
       "npm:aurelia-templating@1.0.0-beta.1.1.4/aurelia-templating.js"
-    ],
-    "app-build.js": [
-      "account-api.js",
-      "api-client.js",
-      "app.html!github:systemjs/plugin-text@0.0.3.js",
-      "app.js",
-      "appointments.html!github:systemjs/plugin-text@0.0.3.js",
-      "appointments.js",
-      "backupManager.js",
-      "blur-image.js",
-      "child-router.html!github:systemjs/plugin-text@0.0.3.js",
-      "child-router.js",
-      "client-factory.js",
-      "client.html!github:systemjs/plugin-text@0.0.3.js",
-      "client.js",
-      "clients-statistics.html!github:systemjs/plugin-text@0.0.3.js",
-      "clients-statistics.js",
-      "clients.html!github:systemjs/plugin-text@0.0.3.js",
-      "clients.js",
-      "custom-elements/input-field.html!github:systemjs/plugin-text@0.0.3.js",
-      "custom-elements/input-field.js",
-      "custom-elements/keep.js",
-      "custom-elements/pickadate.html!github:systemjs/plugin-text@0.0.3.js",
-      "custom-elements/pickadate.js",
-      "custom-elements/search-field.html!github:systemjs/plugin-text@0.0.3.js",
-      "custom-elements/search-field.js",
-      "custom-elements/svg-icons.html!github:systemjs/plugin-text@0.0.3.js",
-      "local-storage-manager.js",
-      "login.html!github:systemjs/plugin-text@0.0.3.js",
-      "login.js",
-      "main.js",
-      "multi-observer.js",
-      "nav-bar.html!github:systemjs/plugin-text@0.0.3.js",
-      "nav-bar.js",
-      "npm:moment@2.12.0.js",
-      "npm:moment@2.12.0/moment.js",
-      "products.html!github:systemjs/plugin-text@0.0.3.js",
-      "products.js",
-      "service-types.html!github:systemjs/plugin-text@0.0.3.js",
-      "service-types.js",
-      "services.html!github:systemjs/plugin-text@0.0.3.js",
-      "services.js",
-      "styles.css!github:systemjs/plugin-text@0.0.3.js",
-      "utils.js",
-      "widgets/client-form.html!github:systemjs/plugin-text@0.0.3.js",
-      "widgets/client-form.js"
     ]
   },
   depCache: {
     "npm:moment@2.12.0.js": [
-      "npm:moment@2.12.0/moment.js"
+      "npm:moment@2.12.0/moment"
     ],
     "account-api.js": [
-      "npm:aurelia-fetch-client@1.0.0-beta.1.1.1.js",
-      "npm:aurelia-router@1.0.0-beta.1.1.3.js",
-      "github:github/fetch@0.10.1.js",
-      "npm:aurelia-framework@1.0.0-beta.1.1.4.js",
-      "utils.js",
-      "local-storage-manager.js"
+      "aurelia-fetch-client",
+      "aurelia-router",
+      "fetch",
+      "aurelia-framework",
+      "./utils",
+      "./local-storage-manager"
     ],
     "api-client.js": [
-      "npm:aurelia-fetch-client@1.0.0-beta.1.1.1.js",
-      "github:github/fetch@0.10.1.js",
-      "npm:aurelia-framework@1.0.0-beta.1.1.4.js",
-      "utils.js",
-      "local-storage-manager.js",
-      "client-factory.js",
-      "backupManager.js",
-      "npm:moment@2.12.0.js"
+      "aurelia-fetch-client",
+      "fetch",
+      "aurelia-framework",
+      "./utils",
+      "./local-storage-manager",
+      "./client-factory",
+      "./backupManager",
+      "moment"
     ],
     "app.js": [
-      "npm:aurelia-router@1.0.0-beta.1.1.3.js",
-      "utils.js",
-      "npm:aurelia-framework@1.0.0-beta.1.1.4.js",
-      "local-storage-manager.js"
+      "aurelia-router",
+      "./utils",
+      "aurelia-framework",
+      "./local-storage-manager"
     ],
     "blur-image.js": [
-      "npm:aurelia-framework@1.0.0-beta.1.1.4.js"
+      "aurelia-framework"
     ],
     "client.js": [
-      "npm:aurelia-framework@1.0.0-beta.1.1.4.js",
-      "api-client.js"
+      "aurelia-framework",
+      "./api-client"
     ],
     "clients.js": [
-      "npm:aurelia-framework@1.0.0-beta.1.1.4.js",
-      "api-client.js",
-      "npm:aurelia-router@1.0.0-beta.1.1.3.js",
-      "npm:aurelia-binding@1.0.0-beta.1.2.2.js"
+      "aurelia-framework",
+      "./api-client",
+      "aurelia-router",
+      "aurelia-binding"
     ],
     "custom-elements/input-field.js": [
-      "npm:aurelia-framework@1.0.0-beta.1.1.4.js"
+      "aurelia-framework"
     ],
     "custom-elements/keep.js": [
-      "npm:aurelia-framework@1.0.0-beta.1.1.4.js"
+      "aurelia-framework"
     ],
     "custom-elements/pickadate.js": [
-      "npm:aurelia-framework@1.0.0-beta.1.1.4.js",
-      "github:dbushell/Pikaday@1.4.0.js"
+      "aurelia-framework",
+      "pikaday"
     ],
     "custom-elements/search-field.js": [
-      "npm:aurelia-framework@1.0.0-beta.1.1.4.js"
+      "aurelia-framework"
     ],
     "login.js": [
-      "npm:aurelia-framework@1.0.0-beta.1.1.4.js",
-      "account-api.js"
+      "aurelia-framework",
+      "./account-api"
     ],
     "multi-observer.js": [
-      "npm:aurelia-framework@1.0.0-beta.1.1.4.js",
-      "npm:aurelia-binding@1.0.0-beta.1.2.2.js"
+      "aurelia-framework",
+      "aurelia-binding"
     ],
     "nav-bar.js": [
-      "npm:aurelia-framework@1.0.0-beta.1.1.4.js",
-      "account-api.js",
-      "utils.js"
+      "aurelia-framework",
+      "./account-api",
+      "./utils"
     ],
     "widgets/client-form.js": [
-      "npm:aurelia-framework@1.0.0-beta.1.1.4.js",
-      "multi-observer.js"
+      "aurelia-framework",
+      "../multi-observer"
     ]
   }
 });
