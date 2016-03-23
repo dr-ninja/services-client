@@ -4,7 +4,8 @@
       "includes": [
         "[**/*.js]",
         "**/*.html!text",
-        "**/*.css!text"
+        "**/*.css!text",
+        "moment"
       ],
       "options": {
         "inject": true,
@@ -27,7 +28,7 @@
         "aurelia-loader-default",
         "aurelia-history-browser",
         "aurelia-logging-console",
-        "moment"
+        "fetch"
       ],
       "options": {
         "inject": true,

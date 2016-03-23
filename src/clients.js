@@ -13,19 +13,19 @@ export class Clients {
   showDeleteBtn = false;
   @bindable filterExpr = '';
 
-  constructor(api, router, bindingEngine) {
-    this.api = api;
-    this.router = router;
-    this.bindingEngine = bindingEngine;
-    this.clientsChanges = this.clientsChanges.bind(this);
-  }
-
   configureRouter(config, router) {
     config.map([
       { route: ':id', name: 'client', moduleId: 'client', nav: false, title: 'Client' },
       { route: [''], name: 'clients-statistics', moduleId: 'clients-statistics', nav: false, title: 'clients-statistics' }
     ]);
     this.router = router;
+  }
+
+  constructor(api, router, bindingEngine) {
+    this.api = api;
+    this.router = router;
+    this.bindingEngine = bindingEngine;
+    this.clientsChanges = this.clientsChanges.bind(this);
   }
 
   activate() {
