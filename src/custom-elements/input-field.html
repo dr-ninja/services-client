@@ -3,7 +3,9 @@
 
   <label class="field-container ${focus?'is-focus':''} ${readonly?'is-readonly':''}">
     <svg-icons class="icon" icon="${icon}"></svg-icons>
-    <input class="text-field-input" type.bind="type" value.bind="value" focus.trigger="onFocus(true)"
+    <input if.one-way="type != number" class="text-field-input" type.bind="type" value.bind="value" focus.trigger="onFocus(true)"
+           blur.trigger="onFocus(false)" placeholder="${placeholder}" readonly.one-way="readonly" />
+    <input if.one-way="type == number" input type="number" pattern="[0-9]*" inputmode="numeric" class="text-field-input" value.bind="value" focus.trigger="onFocus(true)"
            blur.trigger="onFocus(false)" placeholder="${placeholder}" readonly.one-way="readonly" />
   </label>
 
