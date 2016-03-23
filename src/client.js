@@ -17,16 +17,14 @@ export class Client {
 
   save() {
     if (this.client.data.id) {
-      this.apiClient.editClient(this.client).then(data => {console.log('SUCCESS');});
+      this.apiClient.editClient(this.client).then(data => {console.log('Edit client', data);}, error => {console.log(error.statusText, error.status);});
     } else {
-      this.apiClient.newClient(this.client).then(data => {console.log('SUCCESS');});
+      this.apiClient.newClient(this.client).then(data => {console.log('New client with id: ' + data);}, error => {console.log(error.statusText, error.status);});
     }
   }
 
   canDeactivate() {
-    if (this.client) {
-      this.client.undoChanges();
-    }
+    this.client.undoChanges();
   }
 
 }

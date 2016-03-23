@@ -358,6 +358,7 @@ System.config({
       "local-storage-manager",
       "client-factory",
       "backupManager",
+      "aurelia-router",
       "moment"
     ],
     "app.js": [

@@ -23,20 +23,7 @@ export class AccountApi {
   }
 
   logOut() {
-    this.http.fetch('logout', {
-      method: 'post',
-      credentials: 'include'
-    })
-      .then(response => {
-        response.json().then(data => {
-          this.utils.isAuthenticated = false;
-          this.localStorageMgr.store('auth', false);
-          this.utils.username = '';
-          this.router.navigate('login');
-        }, error => {
-          console.warn(error);
-        });
-      });
+    this.localStorageMgr.store('auth', '');
   }
 
 
@@ -54,7 +41,7 @@ export class AccountApi {
       }, error => {
         console.log(error);
         this.utils.isAuthenticated = false;
-        this.localStorageMgr.store('auth', false);
+        this.localStorageMgr.store('auth', '');
       });
   }
 }

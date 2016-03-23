@@ -38,22 +38,22 @@ export class Clients {
     }
   }
 
+  // Selects the first item in list after being created
   clientsChanges(info) {
     if (info[0].addedCount > 0) {
       this.selectClient(this.clients[info[0].index], info[0].index);
     }
   }
 
+  // Displays client info if id is available in the url, otherwise displays form to create new
   attached() {
     let id = (this.router.currentInstruction.params.id) || null;
-    if (id) {
-      let idx = this.clients.findIndex(el => {return el.data.id === id;});
+    let idx = this.clients.findIndex(el => {return el.data.id == id;});
 
-      if (idx > -1) {
-        this.selectClient(this.clients[idx], idx);
-      } else {
-        this.newForm();
-      }
+    if (idx > -1) {
+      this.selectClient(this.clients[idx], idx);
+    } else {
+      this.newForm();
     }
   }
 
@@ -64,10 +64,6 @@ export class Clients {
       this.dispose = this.bindingEngine.collectionObserver(this.clients).subscribe(this.clientsChanges).dispose;
     },
       error => {console.log(error);});
-  }
-
-  newClient() {
-    this.api.newClient().then(data => {console.log(data);});
   }
 
   newForm() {
@@ -96,6 +92,8 @@ export class Clients {
     if (confirm('Queres mesmo eliminar este cliente?')) {
       this.api.deleteClient(client).then(data => {
         this.router.navigateToRoute('clients-statistics');
+      }, error => {
+        console.log('error removing client ', error);
       });
     }
   }

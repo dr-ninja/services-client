@@ -15,8 +15,4 @@ export class InputField {
   onFocus(state) {
     this.focus = state;
   }
-
-  readonlyChanged() {
-    console.log(this.readonly);
-  }
 }
