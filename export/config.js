@@ -27,6 +27,7 @@ System.config({
     "aurelia-templating-binding": "npm:aurelia-templating-binding@1.0.0-beta.1.1.2",
     "aurelia-templating-resources": "npm:aurelia-templating-resources@1.0.0-beta.1.1.3",
     "aurelia-templating-router": "npm:aurelia-templating-router@1.0.0-beta.1.1.2",
+    "aurelia-validation": "npm:aurelia-validation@0.6.6",
     "babel": "npm:babel-core@5.8.38",
     "babel-runtime": "npm:babel-runtime@5.8.38",
     "bootstrap": "github:twbs/bootstrap@3.3.6",
@@ -175,6 +176,13 @@ System.config({
       "aurelia-pal": "npm:aurelia-pal@1.0.0-beta.1.1.1",
       "aurelia-path": "npm:aurelia-path@1.0.0-beta.1.1.1",
       "aurelia-task-queue": "npm:aurelia-task-queue@1.0.0-beta.1.1.1"
+    },
+    "npm:aurelia-validation@0.6.6": {
+      "aurelia-binding": "npm:aurelia-binding@1.0.0-beta.1.2.2",
+      "aurelia-dependency-injection": "npm:aurelia-dependency-injection@1.0.0-beta.1.1.5",
+      "aurelia-logging": "npm:aurelia-logging@1.0.0-beta.1.1.2",
+      "aurelia-metadata": "npm:aurelia-metadata@1.0.0-beta.1.1.6",
+      "aurelia-templating": "npm:aurelia-templating@1.0.0-beta.1.1.4"
     },
     "npm:babel-runtime@5.8.38": {
       "process": "github:jspm/nodelibs-process@0.1.2"
@@ -335,7 +343,25 @@ System.config({
       "npm:aurelia-templating-router@1.0.0-beta.1.1.2/route-loader.js",
       "npm:aurelia-templating-router@1.0.0-beta.1.1.2/router-view.js",
       "npm:aurelia-templating@1.0.0-beta.1.1.4.js",
-      "npm:aurelia-templating@1.0.0-beta.1.1.4/aurelia-templating.js"
+      "npm:aurelia-templating@1.0.0-beta.1.1.4/aurelia-templating.js",
+      "npm:aurelia-validation@0.6.6.js",
+      "npm:aurelia-validation@0.6.6/debouncer.js",
+      "npm:aurelia-validation@0.6.6/decorators.js",
+      "npm:aurelia-validation@0.6.6/index.js",
+      "npm:aurelia-validation@0.6.6/path-observer.js",
+      "npm:aurelia-validation@0.6.6/strategies/twbootstrap-view-strategy.js",
+      "npm:aurelia-validation@0.6.6/utilities.js",
+      "npm:aurelia-validation@0.6.6/validate-custom-attribute.js",
+      "npm:aurelia-validation@0.6.6/validation-config.js",
+      "npm:aurelia-validation@0.6.6/validation-group-builder.js",
+      "npm:aurelia-validation@0.6.6/validation-group.js",
+      "npm:aurelia-validation@0.6.6/validation-locale.js",
+      "npm:aurelia-validation@0.6.6/validation-property.js",
+      "npm:aurelia-validation@0.6.6/validation-result.js",
+      "npm:aurelia-validation@0.6.6/validation-rules-collection.js",
+      "npm:aurelia-validation@0.6.6/validation-rules.js",
+      "npm:aurelia-validation@0.6.6/validation-view-strategy.js",
+      "npm:aurelia-validation@0.6.6/validation.js"
     ]
   },
   depCache: {
@@ -395,7 +421,8 @@ System.config({
     ],
     "login.js": [
       "aurelia-framework",
-      "account-api"
+      "account-api",
+      "aurelia-validation"
     ],
     "multi-observer.js": [
       "aurelia-framework",

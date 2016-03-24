@@ -1,4 +1,5 @@
 =input-field($height: 40px)
+  position: relative
 
   .is-focus svg path
     fill: $action-color
@@ -28,3 +29,11 @@
 
     //&[type="date"]
     //  text-indent: 40px
+
+  .aurelia-validation-message
+    position: absolute
+    top: $height - 12px
+    right: 0
+    line-height: 12px
+    font-size: $tiny-font-size
+    color: $error-color

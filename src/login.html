@@ -1,7 +1,7 @@
 <template>
 
   <section>
-    <form class="login-form" role="form" submit.delegate="logIn()">
+    <form class="login-form" role="form" submit.delegate="logIn()" validate.bind="validation">
       <div class="form-group">
         <input-field class="input name"
                      type.one-time="'text'"

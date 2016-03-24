@@ -2,6 +2,7 @@ export function configure(aurelia) {
   aurelia.use
     .standardConfiguration()
     .developmentLogging()
+    .plugin('aurelia-validation',  (config) => { config.useLocale('pt-BR'); })
     .globalResources('../dist/custom-elements/keep')
     .globalResources('../dist/custom-elements/search-field')
     .globalResources('../dist/custom-elements/input-field')
