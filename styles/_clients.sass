@@ -1,4 +1,4 @@
-.clients-section
+.crud-section
 
   $fixed-header-height: 85px
 
@@ -8,16 +8,16 @@
   height: 100%
   background-color: $widget-bg-color
 
-  .search-clients-section, .client-details-section
+  .search-section, .details-section
     position: relative
     float: left
     width: 50%
     height: 100%
 
-  .search-clients-section
+  .search-section
     border-right: 1px solid $border-color-darker
 
-  .search-clients-header
+  .search-header
     position: relative
     display: block
     width: 100%
@@ -56,16 +56,16 @@
       right: 0
       cursor: pointer
 
-  .clients-search
+  .search-elm
     width: 100%
     +search-field()
 
-  .clients-list
+  .list
     max-height: calc(100vh - #{$fixed-header-height})
     overflow-y: scroll
     background-color: $widget-bg-color
 
-    .client
+    .item
       position: relative
       padding: 0.5*$layout-margin 0
       border-top: 1px solid $border-color
@@ -78,7 +78,7 @@
         background: $widget-bg-color-3
         +transition(background-color 150ms linear)
 
-      .name
+      .text
         font-size: $small-font-size
         line-height: 30px
         margin: 0

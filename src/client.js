@@ -1,30 +1,36 @@
 import {inject} from 'aurelia-framework';
-import {ApiClient} from 'api-client';
+import {Api} from 'api';
 
-@inject(ApiClient)
+@inject(Api)
 export class Client {
-  constructor(apiClient) {
-    this.apiClient = apiClient;
+
+  apiConfig = {
+    objType: 'client',
+    resourceName: 'clients'
+  };
+
+  constructor(api) {
+    this.api = api;
   }
 
   activate(data) {
     if (data && data.id && data.id !== 'new') {
-      this.client = this.apiClient.fetchClient(data.id);
+      this.item = this.api.fetchRow(data.id, this.apiConfig);
     } else {
-      this.client = this.apiClient.getBlankClient();
+      this.item = this.api.getBlankItem(this.apiConfig);
     }
   }
 
   save() {
-    if (this.client.data.id) {
-      this.apiClient.editClient(this.client).then(data => {console.log('Edit client', data);}, error => {console.log(error.statusText, error.status);});
+    if (this.item.data.id) {
+      this.api.editItem(this.item, this.apiConfig).then(data => {console.log('Edit client', data);}, error => {console.log(error.statusText, error.status);});
     } else {
-      this.apiClient.newClient(this.client).then(data => {console.log('New client with id: ' + data);}, error => {console.log(error.statusText, error.status);});
+      this.api.newItem(this.item, this.apiConfig).then(data => {console.log('New client with id: ' + data);}, error => {console.log(error.statusText, error.status);});
     }
   }
 
   canDeactivate() {
-    this.client.undoChanges();
+    this.item.undoChanges();
   }
 
 }

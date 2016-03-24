@@ -1,35 +1,41 @@
 import {inject, bindable} from 'aurelia-framework';
-import {ApiClient} from 'api-client';
+import {Api} from 'api';
 import {Router} from 'aurelia-router';
 import {BindingEngine} from 'aurelia-binding';
 
-@inject(ApiClient, Router, BindingEngine)
+@inject(Api, Router, BindingEngine)
 export class Clients {
+
   heading = 'Clients';
-  clients = [];
-  filteredClients = [];
+  deleteConfirmMessage = 'Queres mesmo eliminar este cliente?';
+  subModules = [
+    { route: ':id', name: 'client', moduleId: 'client', nav: false, title: 'Client' },
+    { route: [''], name: 'clients-statistics', moduleId: 'clients-statistics', nav: false, title: 'clients-statistics' }
+  ];
+
+  apiConfig = {
+    objType: 'client',
+    resourceName: 'clients'
+  };
+
+  list = [];
+  filteredList = [];
   selectedIdx = null;
   isUpdate = false;
   showDeleteBtn = false;
   @bindable filterExpr = '';
 
-  configureRouter(config, router) {
-    config.map([
-      { route: ':id', name: 'client', moduleId: 'client', nav: false, title: 'Client' },
-      { route: [''], name: 'clients-statistics', moduleId: 'clients-statistics', nav: false, title: 'clients-statistics' }
-    ]);
-    this.router = router;
-  }
+  configureRouter(config, router) {config.map(this.subModules); this.router = router;}
 
   constructor(api, router, bindingEngine) {
     this.api = api;
     this.router = router;
     this.bindingEngine = bindingEngine;
-    this.clientsChanges = this.clientsChanges.bind(this);
+    this.listChanges = this.listChanges.bind(this);
   }
 
   activate() {
-    return this.getAllClients();
+    return this.fetchData();
   }
 
   deactivate() {
@@ -38,41 +44,39 @@ export class Clients {
     }
   }
 
-  // Selects the first item in list after being created
-  clientsChanges(info) {
+  listChanges(info) {
     if (info[0].addedCount > 0) {
-      this.selectClient(this.clients[info[0].index], info[0].index);
+      this.selectItem(this.list[info[0].index], info[0].index);
     }
   }
 
-  // Displays client info if id is available in the url, otherwise displays form to create new
   attached() {
     let id = (this.router.currentInstruction.params.id) || null;
-    let idx = this.clients.findIndex(el => {return el.data.id == id;});
+    let idx = this.list.findIndex(el => {return el.data.id == id;});
 
     if (idx > -1) {
-      this.selectClient(this.clients[idx], idx);
+      this.selectItem(this.list[idx], idx);
     } else {
       this.newForm();
     }
   }
 
-  getAllClients() {
-    return this.api.fetchClients().then(data => {
-      this.clients = data;
-      this.filteredClients = data;
-      this.dispose = this.bindingEngine.collectionObserver(this.clients).subscribe(this.clientsChanges).dispose;
+  fetchData() {
+    return this.api.fetchData(this.apiConfig).then(data => {
+      this.list = data;
+      this.filteredList = data;
+      this.dispose = this.bindingEngine.collectionObserver(this.list).subscribe(this.listChanges).dispose;
     },
       error => {console.log(error);});
   }
 
   newForm() {
-    this.router.navigateToRoute('client', { id: 'new'});
+    this.router.navigateToRoute(this.subModules[0].name, { id: 'new'});
     this.selectedIdx = null;
   }
 
-  selectClient(client, idx) {
-    this.router.navigateToRoute('client', { id: client.data.id});
+  selectItem(item, idx) {
+    this.router.navigateToRoute(this.subModules[0].name, { id: item.data.id});
     this.selectedIdx = idx;
   }
 
@@ -83,17 +87,17 @@ export class Clients {
     }
     let re = new RegExp(pattern, 'ig');
 
-    this.filteredClients = this.clients.filter(function(client) {
-      return client.data.name.match(re);
+    this.filteredList = this.list.filter(function(item) {
+      return item.data.name.match(re);
     });
   }
 
-  deleteRow(client) {
-    if (confirm('Queres mesmo eliminar este cliente?')) {
-      this.api.deleteClient(client).then(data => {
-        this.router.navigateToRoute('clients-statistics');
+  deleteRow(item) {
+    if (confirm(this.deleteConfirmMessage)) {
+      this.api.deleteItem(item, this.apiConfig).then(data => {
+        this.router.navigateToRoute(this.subModules[1].name);
       }, error => {
-        console.log('error removing client ', error);
+        console.log('error removing ', error);
       });
     }
   }

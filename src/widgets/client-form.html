@@ -1,16 +1,16 @@
 <template>
   <!--<require from="../custom-elements/pickadate"></require>-->
   <!-- <pickadate></pickadate>-->
-  <header class="search-clients-header">
+  <header class="search-header">
     <span class="label right" click.trigger="toggleEditMode()">${readonly ? 'Editar' : ''}</span>
-    <span if.one-way="!readonly" class="label right" click.trigger="save()">${(client.hasChanges && validation.result.isValid) ? 'Salvar' : ''}</span>
+    <span if.one-way="!readonly" class="label right" click.trigger="save()">${(item.hasChanges && validation.result.isValid) ? 'Salvar' : ''}</span>
   </header>
 
   <div class="client-form" validate.bind="validation">
     <div class="form-group">
       <input-field class="input name"
                    type.one-time="'text'"
-                   value.two-way="client.data.name"
+                   value.two-way="item.data.name"
                    placeholder.one-time="'Nome'"
                    readonly.one-way="readonly"
                    icon.one-time="''">
@@ -20,7 +20,7 @@
     <div class="form-group">
       <input-field class="input nif"
                    type.one-time="'number'"
-                   value.two-way="client.data.nif"
+                   value.two-way="item.data.nif"
                    placeholder.one-time="'NIF'"
                    readonly.one-way="readonly"
                    icon.one-time="''">
@@ -30,7 +30,7 @@
     <div class="form-group">
       <input-field class="input phone"
                    type.one-time="'number'"
-                   value.two-way="client.data.phone"
+                   value.two-way="item.data.phone"
                    placeholder.one-time="'Telefone'"
                    readonly.one-way="readonly"
                    icon.one-time="'mobile'">
@@ -40,7 +40,7 @@
     <div class="form-group">
       <input-field class="input email"
                    type.one-time="'text'"
-                   value.two-way="client.data.email"
+                   value.two-way="item.data.email"
                    placeholder.one-time="'Email'"
                    readonly.one-way="readonly"
                    icon.one-time="'mail'">
@@ -50,7 +50,7 @@
     <div class="form-group">
       <input-field class="input facebook"
                    type.one-time="'text'"
-                   value.two-way="client.data.facebook"
+                   value.two-way="item.data.facebook"
                    placeholder.one-time="'Facebook'"
                    readonly.one-way="readonly"
                    icon.one-time="'facebook'">
@@ -60,7 +60,7 @@
     <div class="form-group">
       <input-field class="input address"
                    type.one-time="'text'"
-                   value.two-way="client.data.address"
+                   value.two-way="item.data.address"
                    placeholder.one-time="'Morada'"
                    readonly.one-way="readonly"
                    icon.one-time="'address'">
@@ -71,7 +71,7 @@
       <input-field class="input birthday"
                    type.one-time="'date'"
                    placeholder.one-time="'Aniversário'"
-                   value.two-way="client.data.birthday"
+                   value.two-way="item.data.birthday"
                    readonly.one-way="readonly"
                    icon.one-time="'bday'">
       </input-field>

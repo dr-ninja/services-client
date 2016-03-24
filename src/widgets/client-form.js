@@ -5,7 +5,7 @@ import {Validation} from 'aurelia-validation';
 @inject(Element, MultiObserver, Validation)
 export class ClientForm {
   @bindable save;
-  @bindable client;
+  @bindable item;
   @bindable readonly = true;
   backupString = '';
   hasChanges = false;
@@ -16,21 +16,21 @@ export class ClientForm {
     this.assignValidations(validation);
   }
 
-  clientChanged() {
-    if (this.client) {
+  itemChanged() {
+    if (this.item) {
       this.attachObserver();
-      this.clientDataChanged();
-      this.readonly = !!this.client.data.id;
+      this.itemDataChanged();
+      this.readonly = !!this.item.data.id;
     }
   }
 
   assignValidations(validation) {
     this.validation = validation.on(this)
-      .ensure('client.data.name')
+      .ensure('item.data.name')
       .hasMinLength(3)
       .hasMaxLength(20)
       .isNotEmpty()
-      .ensure('client.data.phone')
+      .ensure('item.data.phone')
       .isNotEmpty()
       .isBetween(0, 999999999)
       .containsOnlyDigits();
@@ -38,16 +38,16 @@ export class ClientForm {
 
   attachObserver() {
     this.disposeClient = this.multiObserver.observe([
-      [this.client.data, 'name'],
-      [this.client.data, 'nif'],
-      [this.client.data, 'email'],
-      [this.client.data, 'phone'],
-      [this.client.data, 'facebook'],
-      [this.client.data, 'address'],
-      [this.client.data, 'birthday'],
-      [this.client.data, 'alert'],
-      [this.client.data, 'alert_period']
-    ], () => this.clientDataChanged());
+      [this.item.data, 'name'],
+      [this.item.data, 'nif'],
+      [this.item.data, 'email'],
+      [this.item.data, 'phone'],
+      [this.item.data, 'facebook'],
+      [this.item.data, 'address'],
+      [this.item.data, 'birthday'],
+      [this.item.data, 'alert'],
+      [this.item.data, 'alert_period']
+    ], () => this.itemDataChanged());
   }
 
   detached() {
@@ -56,10 +56,10 @@ export class ClientForm {
     }
   }
 
-  clientDataChanged() {
+  itemDataChanged() {
     this.validation.validate()
       .then( () => {
-        this.client.check();
+        this.item.check();
       }, () => {
       });
   }

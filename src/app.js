@@ -1,5 +1,4 @@
 import {Redirect} from 'aurelia-router';
-import {Utils} from 'utils';
 import {inject} from 'aurelia-framework';
 import {LocalStorageManager} from 'local-storage-manager';
 
@@ -22,18 +21,16 @@ export class App {
 }
 
 
-@inject(Utils, LocalStorageManager)
+@inject(LocalStorageManager)
 class AuthorizeStep {
 
-  constructor(utils, localStorage) {
-    this.utils = utils;
+  constructor(localStorage) {
     this.localStorageMgr = localStorage;
   }
 
   run(navigationInstruction, next) {
     if (navigationInstruction.getAllInstructions().some(i => i.config.settings.auth === true)) {
       let isAuth = this.localStorageMgr.getKey('auth') || false;
-      this.utils.isAuthenticated = isAuth;
       if (!isAuth) {
         return next.cancel(new Redirect('login'));
       }

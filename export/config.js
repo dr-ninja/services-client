@@ -216,16 +216,13 @@ System.config({
   bundles: {
     "app-build.js": [
       "account-api.js",
-      "api-client.js",
+      "api.js",
       "app.html!github:systemjs/plugin-text@0.0.3.js",
       "app.js",
       "appointments.html!github:systemjs/plugin-text@0.0.3.js",
       "appointments.js",
       "backup-manager.js",
       "blur-image.js",
-      "child-router.html!github:systemjs/plugin-text@0.0.3.js",
-      "child-router.js",
-      "client-factory.js",
       "client.html!github:systemjs/plugin-text@0.0.3.js",
       "client.js",
       "clients-statistics.html!github:systemjs/plugin-text@0.0.3.js",
@@ -240,6 +237,7 @@ System.config({
       "custom-elements/search-field.html!github:systemjs/plugin-text@0.0.3.js",
       "custom-elements/search-field.js",
       "custom-elements/svg-icons.html!github:systemjs/plugin-text@0.0.3.js",
+      "factory.js",
       "local-storage-manager.js",
       "login.html!github:systemjs/plugin-text@0.0.3.js",
       "login.js",
@@ -376,20 +374,17 @@ System.config({
       "utils",
       "local-storage-manager"
     ],
-    "api-client.js": [
+    "api.js": [
       "aurelia-fetch-client",
       "fetch",
       "aurelia-framework",
       "utils",
       "local-storage-manager",
-      "client-factory",
-      "backup-manager",
-      "aurelia-router",
-      "moment"
+      "factory",
+      "aurelia-router"
     ],
     "app.js": [
       "aurelia-router",
-      "utils",
       "aurelia-framework",
       "local-storage-manager"
     ],
@@ -398,11 +393,11 @@ System.config({
     ],
     "client.js": [
       "aurelia-framework",
-      "api-client"
+      "api"
     ],
     "clients.js": [
       "aurelia-framework",
-      "api-client",
+      "api",
       "aurelia-router",
       "aurelia-binding"
     ],
@@ -419,6 +414,10 @@ System.config({
     "custom-elements/search-field.js": [
       "aurelia-framework"
     ],
+    "factory.js": [
+      "backup-manager",
+      "moment"
+    ],
     "login.js": [
       "aurelia-framework",
       "account-api",
@@ -430,8 +429,7 @@ System.config({
     ],
     "nav-bar.js": [
       "aurelia-framework",
-      "account-api",
-      "utils"
+      "account-api"
     ],
     "widgets/client-form.js": [
       "aurelia-framework",
