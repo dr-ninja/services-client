@@ -221,7 +221,7 @@ System.config({
       "app.js",
       "appointments.html!github:systemjs/plugin-text@0.0.3.js",
       "appointments.js",
-      "backupManager.js",
+      "backup-manager.js",
       "blur-image.js",
       "child-router.html!github:systemjs/plugin-text@0.0.3.js",
       "child-router.js",
@@ -383,7 +383,7 @@ System.config({
       "utils",
       "local-storage-manager",
       "client-factory",
-      "backupManager",
+      "backup-manager",
       "aurelia-router",
       "moment"
     ],
@@ -435,7 +435,8 @@ System.config({
     ],
     "widgets/client-form.js": [
       "aurelia-framework",
-      "multi-observer"
+      "multi-observer",
+      "aurelia-validation"
     ]
   }
 });

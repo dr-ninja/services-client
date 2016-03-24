@@ -1,7 +1,8 @@
 import {inject, bindable} from 'aurelia-framework';
 import {MultiObserver} from 'multi-observer';
+import {Validation} from 'aurelia-validation';
 
-@inject(Element, MultiObserver)
+@inject(Element, MultiObserver, Validation)
 export class ClientForm {
   @bindable save;
   @bindable client;
@@ -9,9 +10,10 @@ export class ClientForm {
   backupString = '';
   hasChanges = false;
 
-  constructor(element,  multiObserver) {
+  constructor(element,  multiObserver, validation) {
     this.element = element;
     this.multiObserver = multiObserver;
+    this.assignValidations(validation);
   }
 
   clientChanged() {
@@ -20,6 +22,18 @@ export class ClientForm {
       this.clientDataChanged();
       this.readonly = !!this.client.data.id;
     }
+  }
+
+  assignValidations(validation) {
+    this.validation = validation.on(this)
+      .ensure('client.data.name')
+      .hasMinLength(3)
+      .hasMaxLength(20)
+      .isNotEmpty()
+      .ensure('client.data.phone')
+      .isNotEmpty()
+      .isBetween(0, 999999999)
+      .containsOnlyDigits();
   }
 
   attachObserver() {
@@ -43,7 +57,11 @@ export class ClientForm {
   }
 
   clientDataChanged() {
-    this.client.check();
+    this.validation.validate()
+      .then( () => {
+        this.client.check();
+      }, () => {
+      });
   }
 
   toggleEditMode() {

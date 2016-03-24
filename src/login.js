@@ -2,8 +2,7 @@ import {inject} from 'aurelia-framework';
 import {AccountApi} from 'account-api';
 import {Validation} from 'aurelia-validation';
 
-
-@inject(AccountApi, Validation )
+@inject(AccountApi, Validation)
 export class Welcome {
   username = 'admin';
   password = 'admin';

@@ -4,7 +4,7 @@ import {inject} from 'aurelia-framework';
 import {Utils} from 'utils';
 import {LocalStorageManager} from 'local-storage-manager';
 import {ClientFactory} from 'client-factory';
-import {BackupManager} from 'backupManager';
+import {BackupManager} from 'backup-manager';
 import {Router} from 'aurelia-router';
 import moment from 'moment';
 
