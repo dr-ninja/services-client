@@ -1,0 +1,51 @@
+<template>
+  <!--<require from="../custom-elements/pickadate"></require>-->
+  <!-- <pickadate></pickadate>-->
+  <header class="search-header">
+    <span class="label right" click.trigger="toggleEditMode()">${readonly ? 'Editar' : ''}</span>
+    <span if.one-way="!readonly" class="label right" click.trigger="save()">${(item.hasChanges && validation.result.isValid) ? 'Salvar' : ''}</span>
+  </header>
+
+  <div class="stype-form" validate.bind="validation">
+    <div class="form-group">
+      <input-field class="input name"
+                   type.one-time="'text'"
+                   value.two-way="item.data.name"
+                   placeholder.one-time="'Nome'"
+                   readonly.one-way="readonly"
+                   icon.one-time="''">
+      </input-field>
+    </div>
+
+    <div class="form-group">
+      <input-field class="input def-dur"
+                   type.one-time="'number'"
+                   value.two-way="item.data.default_duration"
+                   placeholder.one-time="'Duração'"
+                   readonly.one-way="readonly"
+                   icon.one-time="''">
+      </input-field>
+    </div>
+
+    <div class="form-group">
+      <input-field class="input def-price"
+                   type.one-time="'number'"
+                   value.two-way="item.data.default_price"
+                   placeholder.one-time="'Preço'"
+                   readonly.one-way="readonly"
+                   icon.one-time="''">
+      </input-field>
+    </div>
+
+    <div class="form-group">
+      <input-field class="input cost"
+                   type.one-time="'text'"
+                   value.two-way="item.data.cost"
+                   placeholder.one-time="'Custo'"
+                   readonly.one-way="readonly"
+                   icon.one-time="''">
+      </input-field>
+    </div>
+  </div>
+
+</template>

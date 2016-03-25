@@ -4,9 +4,11 @@ import moment from 'moment';
 export class Factory {
 
   clientsList = [];
+  serviceTypes = [];
 
   objHolderMapper = {
-    client: { arrayName: 'clientsList', blankObj: {name: '', nif: null, phone: null, email: '', facebook: '', address: '', birthday: null, alert: false, alert_period: null} }
+    'client': { arrayName: 'clientsList', blankObj: {name: '', nif: null, phone: null, email: '', facebook: '', address: '', birthday: null, alert: false, alert_period: null} },
+    'serviceType': {arrayName: 'serviceTypes', blankObj: { name: '', default_duration: '', default_price: '', cost: ''} }
   };
 
   constructor() {}

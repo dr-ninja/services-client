@@ -4,18 +4,18 @@ import {Router} from 'aurelia-router';
 import {BindingEngine} from 'aurelia-binding';
 
 @inject(Api, Router, BindingEngine)
-export class Clients {
+export class ServiceTypes {
 
-  heading = 'Clients';
-  deleteConfirmMessage = 'Queres mesmo eliminar este cliente?';
+  heading = 'Tipos Serviço';
+  deleteConfirmMessage = 'Queres mesmo eliminar este tipo de serviço?';
   subModules = [
-    { route: ':id', name: 'client', moduleId: 'client', nav: false, title: 'Client' },
-    { route: [''], name: 'clients-statistics', moduleId: 'clients-statistics', nav: false, title: 'clients-statistics' }
+    { route: ':id', name: 'service-type', moduleId: './service-type', nav: false, title: 'Service Type' },
+    { route: [''], name: 'service-type-statistics', moduleId: './service-type-statistics', nav: false, title: 'Stype Statistics' }
   ];
 
   apiConfig = {
-    objType: 'client',
-    resourceName: 'clients'
+    objType: 'serviceType',
+    resourceName: 'stypes'
   };
 
   list = [];

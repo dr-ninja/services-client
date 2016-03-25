@@ -222,13 +222,6 @@ System.config({
       "appointments.html!github:systemjs/plugin-text@0.0.3.js",
       "appointments.js",
       "backup-manager.js",
-      "blur-image.js",
-      "client.html!github:systemjs/plugin-text@0.0.3.js",
-      "client.js",
-      "clients-statistics.html!github:systemjs/plugin-text@0.0.3.js",
-      "clients-statistics.js",
-      "clients.html!github:systemjs/plugin-text@0.0.3.js",
-      "clients.js",
       "custom-elements/input-field.html!github:systemjs/plugin-text@0.0.3.js",
       "custom-elements/input-field.js",
       "custom-elements/keep.js",
@@ -247,16 +240,26 @@ System.config({
       "nav-bar.js",
       "npm:moment@2.12.0.js",
       "npm:moment@2.12.0/moment.js",
-      "products.html!github:systemjs/plugin-text@0.0.3.js",
-      "products.js",
-      "service-types.html!github:systemjs/plugin-text@0.0.3.js",
-      "service-types.js",
+      "pages/clients/client-form.html!github:systemjs/plugin-text@0.0.3.js",
+      "pages/clients/client-form.js",
+      "pages/clients/client.html!github:systemjs/plugin-text@0.0.3.js",
+      "pages/clients/client.js",
+      "pages/clients/clients-statistics.html!github:systemjs/plugin-text@0.0.3.js",
+      "pages/clients/clients-statistics.js",
+      "pages/clients/clients.html!github:systemjs/plugin-text@0.0.3.js",
+      "pages/clients/clients.js",
+      "pages/stypes/service-type-statistics.html!github:systemjs/plugin-text@0.0.3.js",
+      "pages/stypes/service-type-statistics.js",
+      "pages/stypes/service-type.html!github:systemjs/plugin-text@0.0.3.js",
+      "pages/stypes/service-type.js",
+      "pages/stypes/service-types.html!github:systemjs/plugin-text@0.0.3.js",
+      "pages/stypes/service-types.js",
+      "pages/stypes/stype-form.html!github:systemjs/plugin-text@0.0.3.js",
+      "pages/stypes/stype-form.js",
       "services.html!github:systemjs/plugin-text@0.0.3.js",
       "services.js",
       "styles.css!github:systemjs/plugin-text@0.0.3.js",
-      "utils.js",
-      "widgets/client-form.html!github:systemjs/plugin-text@0.0.3.js",
-      "widgets/client-form.js"
+      "utils.js"
     ],
     "aurelia.js": [
       "github:github/fetch@0.10.1.js",
@@ -388,19 +391,6 @@ System.config({
       "aurelia-framework",
       "local-storage-manager"
     ],
-    "blur-image.js": [
-      "aurelia-framework"
-    ],
-    "client.js": [
-      "aurelia-framework",
-      "api"
-    ],
-    "clients.js": [
-      "aurelia-framework",
-      "api",
-      "aurelia-router",
-      "aurelia-binding"
-    ],
     "custom-elements/input-field.js": [
       "aurelia-framework"
     ],
@@ -431,7 +421,32 @@ System.config({
       "aurelia-framework",
       "account-api"
     ],
-    "widgets/client-form.js": [
+    "pages/clients/client-form.js": [
+      "aurelia-framework",
+      "multi-observer",
+      "aurelia-validation"
+    ],
+    "pages/clients/client.js": [
+      "aurelia-framework",
+      "api"
+    ],
+    "pages/clients/clients.js": [
+      "aurelia-framework",
+      "api",
+      "aurelia-router",
+      "aurelia-binding"
+    ],
+    "pages/stypes/service-type.js": [
+      "aurelia-framework",
+      "api"
+    ],
+    "pages/stypes/service-types.js": [
+      "aurelia-framework",
+      "api",
+      "aurelia-router",
+      "aurelia-binding"
+    ],
+    "pages/stypes/stype-form.js": [
       "aurelia-framework",
       "multi-observer",
       "aurelia-validation"
