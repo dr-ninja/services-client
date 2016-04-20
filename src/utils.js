@@ -1,6 +1,7 @@
 
 
 export class Utils {
-  domain = '//auth-services-api.herokuapp.com/';
-  //domain = '//localhost:8080/';
+  domain = '//api-ilovenails.herokuapp.com/api';
+  //domain = '//localhost:5000/api';
+  isAuthenticated = false;
 }

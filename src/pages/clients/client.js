@@ -22,15 +22,16 @@ export class Client {
   }
 
   save() {
-    if (this.item.data.id) {
+    if (this.item.data._id) {
       this.api.editItem(this.item, this.apiConfig).then(data => {console.log('Edit client', data);}, error => {console.log(error.statusText, error.status);});
     } else {
-      this.api.newItem(this.item, this.apiConfig).then(data => {console.log('New client with id: ' + data);}, error => {console.log(error.statusText, error.status);});
+      this.api.newItem(this.item, this.apiConfig).then(data => {console.log('New client', data);}, error => {console.log(error.statusText, error.status);});
     }
   }
 
   canDeactivate() {
-    this.item.undoChanges();
+    if(this.item)
+      this.item.undoChanges();
   }
 
 }

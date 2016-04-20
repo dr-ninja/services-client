@@ -36,10 +36,11 @@ export class Api {
       if (this.factory.arrHasLength(config.objType)) {
         resolve(this.factory.getList(config.objType));
       } else {
-        this.http.fetch(config.resourceName, {method: 'get', headers: {Authorization: 'Bearer ' + this.localStorageMgr.getKey('auth')}})
+        this.http.fetch("/" + config.resourceName, {method: 'get', headers: {Authorization: 'Basic ' + this.localStorageMgr.getKey('auth')}})
           .then(
             response => response.json().then(data => {
-              let result = this.factory.fillList(config.objType, data.results);
+              console.log(data);
+              let result = this.factory.fillList(config.objType, data);
               resolve(result);
             })
         )
@@ -50,9 +51,9 @@ export class Api {
 
   newItem(item, config) {
     return new Promise((resolve, reject)=>{
-      this.http.fetch(config.resourceName, {method: 'post', headers: {Authorization: 'Bearer ' + this.localStorageMgr.getKey('auth')}, body: JSON.stringify(item.data).replace(/""/ig, null)})
+      this.http.fetch("/" +config.resourceName, {method: 'post', headers: {Authorization: 'Basic ' + this.localStorageMgr.getKey('auth'), 'Content-Type': 'application/json'}, body: JSON.stringify(item.data).replace(/""/ig, null)})
         .then(response => {
-          response.json().then(data => {this.factory.addNewItem(config.objType, item, data.id); resolve(data);});
+          response.json().then(data => {this.factory.addNewItem(config.objType, item, data); resolve(data);});
         })
         .catch(error => {if (error.status === 401) {this.localStorageMgr.store('auth', ''); this.router.navigate('login');} reject(error);});
     });
@@ -60,9 +61,9 @@ export class Api {
 
   editItem(item, config) {
     return new Promise((resolve, reject)=>{
-      this.http.fetch(config.resourceName + '/' + item.data.id, {method: 'put', headers: {Authorization: 'Bearer ' + this.localStorageMgr.getKey('auth')}, body: JSON.stringify(item.data).replace(/""/ig, null)})
+      this.http.fetch("/" +config.resourceName + '/' + item.data._id, {method: 'put', headers: {Authorization: 'Basic ' + this.localStorageMgr.getKey('auth'), 'Content-Type': 'application/json'}, body: JSON.stringify(item.data).replace(/""/ig, null)})
         .then(response => {
-          response.json().then(data => {item.saveChanges(); resolve(data);});
+          response.json().then(data => {if(data.ok && data.nModified === 1) {item.saveChanges(); resolve(data);} else {reject({error: "Something unexpected occurred"})}});
         })
         .catch(error => {if (error.status === 401) {this.localStorageMgr.store('auth', ''); this.router.navigate('login');} reject(error);});
     });
@@ -70,7 +71,7 @@ export class Api {
 
   deleteItem(item, config) {
     return new Promise((resolve, reject)=>{
-      this.http.fetch(config.resourceName + '/' + item.data.id, {method: 'delete', headers: {Authorization: 'Bearer ' + this.localStorageMgr.getKey('auth')}})
+      this.http.fetch("/" + config.resourceName + '/' + item.data._id, {method: 'delete', headers: {Authorization: 'Basic ' + this.localStorageMgr.getKey('auth')}})
         .then(response => {
           response.json().then(data => {this.factory.deleteItem(config.objType, item); resolve(data);});
         })

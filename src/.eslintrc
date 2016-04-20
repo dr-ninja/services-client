@@ -1,6 +1,8 @@
 {
   "rules": {
     "no-alert": 0,
-    "eqeqeq": 0
+    "eqeqeq": 0,
+    "no-console": 0,
+    "indent": 0
   }
 }

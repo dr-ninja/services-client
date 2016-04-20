@@ -3,19 +3,21 @@ import {Router} from 'aurelia-router';
 import 'fetch';
 import {inject} from 'aurelia-framework';
 import {Utils} from 'utils';
+import {Factory} from 'factory';
 import {LocalStorageManager} from 'local-storage-manager';
 
-@inject(HttpClient, Router, Utils, LocalStorageManager)
+@inject(HttpClient, Router, Factory, Utils, LocalStorageManager)
 export class AccountApi {
 
-  constructor(http, router, utils, localStorage) {
+  constructor(http, router, factory, utils, localStorage) {
     this.utils = utils;
+    this.factory = factory;
     this.localStorageMgr = localStorage;
 
     http.configure(config => {
       config
         .useStandardConfiguration()
-        .withBaseUrl(this.utils.domain);
+        .withBaseUrl(this.utils.domain)
     });
 
     this.http = http;
@@ -23,16 +25,21 @@ export class AccountApi {
   }
 
   logOut() {
-    this.localStorageMgr.store('auth', '');
-    this.router.navigate('login');
+   /* this.localStorageMgr.store('auth', '');
+    this.utils.isAuthenticated = false;
+    this.router.navigate('login');*/
+  }
+  
+  resetFactoryData() {
+    this.factory.reset();
   }
 
-
-  logIn(loginData) {
-    this.http.fetch('login', {
-      method: 'post',
-      body: loginData
-    })
+  /*logIn(username, password) {
+    this.http.fetch('/login', {
+        method: 'post',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({username: username, password: password})
+      })
       .then(response => {
         response.json().then(data => {
           this.utils.isAuthenticated = true;
@@ -44,5 +51,16 @@ export class AccountApi {
         this.utils.isAuthenticated = false;
         this.localStorageMgr.store('auth', '');
       });
+  }*/
+
+  fetchCals() {
+    return this.http.fetch("/cals", {method: 'get',headers: {Authorization: 'Bearer ' + this.localStorageMgr.getKey('aurelia_token')}})
+      .then(
+        response => response.json().then(data => {
+         return data;
+        })
+      );
+
   }
+
 }

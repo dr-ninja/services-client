@@ -1,15 +1,25 @@
 import {inject} from 'aurelia-framework';
 import {AccountApi} from 'account-api';
 import {Validation} from 'aurelia-validation';
+import {AuthService} from 'aurelia-auth';
 
-@inject(AccountApi, Validation)
-export class Welcome {
+
+@inject(AccountApi, Validation, AuthService)
+export class Login {
   username = 'admin';
   password = 'admin';
+  
+  calData = "";
 
-  constructor(accountApi, validation) {
+  constructor(accountApi, validation, auth, ) {
     this.accountApi = accountApi;
+    this.auth = auth;
+   
     this.assignValidations(validation);
+  }
+
+  activate() {
+    this.accountApi.resetFactoryData();
   }
 
   assignValidations(validation) {
@@ -24,18 +34,36 @@ export class Welcome {
       .hasMaxLength(10);
   }
 
-  logIn() {
+ /* logIn() {
     this.validation.validate()
       .then( () => {
-        let postData = new FormData();
-        postData.append( 'username', this.username );
-        postData.append( 'password', this.password );
-        this.accountApi.logIn(postData);
+        this.accountApi.logIn(this.username, this.password);
       }, () => {
       });
+  }*/
+  
+  authenticate(name){
+    return this.auth.authenticate(name, false, null)
+      .then((response)=>{
+        console.log("auth response ", response);
+      });
   }
+  
+  fetchCals() {
+    this.accountApi.fetchCals().then(
+      (data) => {this.calData = JSON.stringify(data);},
+      (error) => {
+        console.log(error);
+      }
+    );
+      
 
+  }
+  
+  
   canDeactivate() {}
 
-  attached() {}
+  attached() {
+
+  }
 }

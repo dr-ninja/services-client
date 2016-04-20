@@ -29,6 +29,8 @@
         "aurelia-history-browser",
         "aurelia-logging-console",
         "aurelia-validation",
+        "aurelia-dialog",
+        "aurelia-auth",
         "fetch"
       ],
       "options": {

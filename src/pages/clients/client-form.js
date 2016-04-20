@@ -7,7 +7,6 @@ export class ClientForm {
   @bindable save;
   @bindable item;
   @bindable readonly = true;
-  backupString = '';
   hasChanges = false;
 
   constructor(element,  multiObserver, validation) {
@@ -20,7 +19,7 @@ export class ClientForm {
     if (this.item) {
       this.attachObserver();
       this.itemDataChanged();
-      this.readonly = !!this.item.data.id;
+      this.readonly = !!this.item.data._id;
     }
   }
 
@@ -44,9 +43,7 @@ export class ClientForm {
       [this.item.data, 'phone'],
       [this.item.data, 'facebook'],
       [this.item.data, 'address'],
-      [this.item.data, 'birthday'],
-      [this.item.data, 'alert'],
-      [this.item.data, 'alert_period']
+      [this.item.data, 'birthday']
     ], () => this.itemDataChanged());
   }
 

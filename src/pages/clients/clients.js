@@ -52,7 +52,7 @@ export class Clients {
 
   attached() {
     let id = (this.router.currentInstruction.params.id) || null;
-    let idx = this.list.findIndex(el => {return el.data.id == id;});
+    let idx = this.list.findIndex(el => {return el.data._id == id;});
 
     if (idx > -1) {
       this.selectItem(this.list[idx], idx);
@@ -76,7 +76,7 @@ export class Clients {
   }
 
   selectItem(item, idx) {
-    this.router.navigateToRoute(this.subModules[0].name, { id: item.data.id});
+    this.router.navigateToRoute(this.subModules[0].name, { id: item.data._id});
     this.selectedIdx = idx;
   }
 
