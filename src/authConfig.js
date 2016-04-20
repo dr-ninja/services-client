@@ -26,7 +26,7 @@ var configForProduction = {
       url: 'auth/google',
       authorizationEndpoint: 'https://accounts.google.com/o/oauth2/auth',
       redirectUri: window.location.origin || window.location.protocol + '//' + window.location.host,
-      scope: ['profile', 'email'],
+      scope: ['profile', 'email', 'https://www.googleapis.com/auth/calendar'],
       scopePrefix: 'openid',
       scopeDelimiter: ' ',
       requiredUrlParams: ['scope'],
