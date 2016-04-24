@@ -1,0 +1,30 @@
+<template>
+
+  <require from="./../../custom-attributes/draggable"></require>
+  <require from="./../../custom-elements/calendar"></require>
+
+  <div class="services">
+    <h2>Services</h2>
+
+    <ul>
+      <li draggable repeat.for="service of defaultServices" data-event="${$parent.jsonStringify(service)}">
+        <p>${service.label}</p>
+      </li>
+    </ul>
+
+
+  </div>
+
+  <calendar
+    event-select.call="eventSelect($event)"
+    event-click.call="eventClick($event)"
+    event-drop.call="eventDrop($event)"
+    event-receive.call="eventReceive($event)"
+    calendar.ref="calendar">
+  </calendar>
+
+
+  ${newAppointment.title}
+  ${newAppointment.start}
+  ${newAppointment.end}
+</template>

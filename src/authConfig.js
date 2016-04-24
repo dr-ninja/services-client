@@ -1,7 +1,8 @@
 var configForDevelopment = {
+  serverDomain: '//localhost:5000',
   providers: {
     google: {
-      clientId: '931548715504-e2kd313efq5s9fhnqv4d7vt0msoj7lld.apps.googleusercontent.com',
+      clientId: '400465532626-i2u1o5rpnc7m7teh2keo9naqu6gv95n0.apps.googleusercontent.com',
       name: 'google',
       url: 'auth/google',
       authorizationEndpoint: 'https://accounts.google.com/o/oauth2/auth',
@@ -10,18 +11,19 @@ var configForDevelopment = {
       scopePrefix: 'openid',
       scopeDelimiter: ' ',
       requiredUrlParams: ['scope'],
-      optionalUrlParams: ['display'],
+      optionalUrlParams: ['display', 'access_type'],
       display: 'popup',
+      accessType: 'offline',
       type: '2.0'
     }
-
   }
 };
 
 var configForProduction = {
+  serverDomain: '//api-ilovenails.herokuapp.com',
   providers: {
     google: {
-      clientId: '931548715504-e2kd313efq5s9fhnqv4d7vt0msoj7lld.apps.googleusercontent.com',
+      clientId: '400465532626-sip4u4621nagqtmom5s00dr4l5gl5sek.apps.googleusercontent.com',
       name: 'google',
       url: 'auth/google',
       authorizationEndpoint: 'https://accounts.google.com/o/oauth2/auth',
@@ -30,12 +32,11 @@ var configForProduction = {
       scopePrefix: 'openid',
       scopeDelimiter: ' ',
       requiredUrlParams: ['scope'],
-      optionalUrlParams: ['display'],
+      optionalUrlParams: ['display', 'access_type'],
       display: 'popup',
+      accessType: 'offline',
       type: '2.0'
     }
-
-
   }
 };
 var config ;
@@ -45,6 +46,5 @@ if (window.location.hostname==='localhost') {
 else{
   config = configForProduction;
 }
-
 
 export default config;

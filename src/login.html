@@ -1,35 +1,5 @@
 <template>
-
-
   <button class="btn btn-block btn-google-plus" click.delegate="authenticate('google')">
     <span class="ion-social-googleplus"></span>Sign in with Google
   </button>
-
-  <button click.trigger="fetchCals()">cals</button>
-
- <!-- <section>
-    <form class="login-form" role="form" submit.delegate="logIn()" validate.bind="validation">
-      <div class="form-group">
-        <input-field class="input name"
-                     type.one-time="'text'"
-                     value.two-way="username"
-                     placeholder.one-time="'Nome'"
-                     readonly.one-way="false"
-                     icon.one-time="''">
-        </input-field>
-      </div>
-      <div class="form-group">
-        <input-field class="input password"
-                     type.one-time="'password'"
-                     value.two-way="password"
-                     placeholder.one-time="'Password'"
-                     readonly.one-way="false"
-                     icon.one-time="''">
-        </input-field>
-      </div>
-      <button type="submit" class="btn btn-default">Login</button>
-    </form>
-  </section>-->
-
-  ${calData}
 </template>

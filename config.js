@@ -433,10 +433,11 @@ System.config({
       "api.js",
       "app.html!github:systemjs/plugin-text@0.0.3.js",
       "app.js",
-      "appointments.html!github:systemjs/plugin-text@0.0.3.js",
-      "appointments.js",
       "authConfig.js",
       "backup-manager.js",
+      "custom-attributes/draggable.js",
+      "custom-elements/calendar.html!github:systemjs/plugin-text@0.0.3.js",
+      "custom-elements/calendar.js",
       "custom-elements/input-field.html!github:systemjs/plugin-text@0.0.3.js",
       "custom-elements/input-field.js",
       "custom-elements/keep.js",
@@ -451,10 +452,14 @@ System.config({
       "login.js",
       "main.js",
       "multi-observer.js",
+      "my-modal.html!github:systemjs/plugin-text@0.0.3.js",
+      "my-modal.js",
       "nav-bar.html!github:systemjs/plugin-text@0.0.3.js",
       "nav-bar.js",
       "npm:moment@2.13.0.js",
       "npm:moment@2.13.0/moment.js",
+      "pages/appointments/appointments.html!github:systemjs/plugin-text@0.0.3.js",
+      "pages/appointments/appointments.js",
       "pages/clients/client-form.html!github:systemjs/plugin-text@0.0.3.js",
       "pages/clients/client-form.js",
       "pages/clients/client.html!github:systemjs/plugin-text@0.0.3.js",
@@ -463,8 +468,10 @@ System.config({
       "pages/clients/clients-statistics.js",
       "pages/clients/clients.html!github:systemjs/plugin-text@0.0.3.js",
       "pages/clients/clients.js",
-      "pages/modal/my-modal.html!github:systemjs/plugin-text@0.0.3.js",
-      "pages/modal/my-modal.js",
+      "pages/profile/profile.html!github:systemjs/plugin-text@0.0.3.js",
+      "pages/profile/profile.js",
+      "pages/services/services.html!github:systemjs/plugin-text@0.0.3.js",
+      "pages/services/services.js",
       "pages/stypes/service-type-statistics.html!github:systemjs/plugin-text@0.0.3.js",
       "pages/stypes/service-type-statistics.js",
       "pages/stypes/service-type.html!github:systemjs/plugin-text@0.0.3.js",
@@ -473,14 +480,17 @@ System.config({
       "pages/stypes/service-types.js",
       "pages/stypes/stype-form.html!github:systemjs/plugin-text@0.0.3.js",
       "pages/stypes/stype-form.js",
-      "services.html!github:systemjs/plugin-text@0.0.3.js",
-      "services.js",
-      "styles.css!github:systemjs/plugin-text@0.0.3.js",
-      "utils.js"
+      "styles.css!github:systemjs/plugin-text@0.0.3.js"
     ],
     "aurelia.js": [
+      "github:components/jqueryui@1.11.4.js",
+      "github:components/jqueryui@1.11.4/jquery-ui.js",
       "github:github/fetch@0.11.0.js",
       "github:github/fetch@0.11.0/fetch.js",
+      "github:jspm/nodelibs-process@0.1.2.js",
+      "github:jspm/nodelibs-process@0.1.2/index.js",
+      "github:systemjs/plugin-text@0.0.3.js",
+      "github:systemjs/plugin-text@0.0.3/text.js",
       "npm:aurelia-animator-css@1.0.0-beta.1.2.0.js",
       "npm:aurelia-animator-css@1.0.0-beta.1.2.0/aurelia-animator-css.js",
       "npm:aurelia-auth@2.1.3.js",
@@ -612,8 +622,18 @@ System.config({
       "npm:aurelia-validation@0.6.7/validation-rules.js",
       "npm:aurelia-validation@0.6.7/validation-view-strategy.js",
       "npm:aurelia-validation@0.6.7/validation.js",
+      "npm:fullcalendar@2.7.0-beta.js",
+      "npm:fullcalendar@2.7.0-beta/dist/fullcalendar.js",
       "npm:isomorphic-fetch@2.2.1.js",
       "npm:isomorphic-fetch@2.2.1/fetch-npm-browserify.js",
+      "npm:jquery-ui-touch-punch@0.2.3.js",
+      "npm:jquery-ui-touch-punch@0.2.3/jquery.ui.touch-punch.js",
+      "npm:jquery@2.2.3.js",
+      "npm:jquery@2.2.3/dist/jquery.js",
+      "npm:moment@2.13.0.js",
+      "npm:moment@2.13.0/moment.js",
+      "npm:process@0.11.2.js",
+      "npm:process@0.11.2/browser.js",
       "npm:whatwg-fetch@0.11.0.js",
       "npm:whatwg-fetch@0.11.0/fetch.js"
     ]
@@ -627,29 +647,32 @@ System.config({
       "aurelia-router",
       "fetch",
       "aurelia-framework",
-      "utils",
       "factory",
-      "local-storage-manager"
+      "local-storage-manager",
+      "authConfig"
     ],
     "api.js": [
       "aurelia-fetch-client",
       "fetch",
       "aurelia-framework",
-      "utils",
+      "authConfig",
       "local-storage-manager",
       "factory",
       "aurelia-router"
     ],
     "app.js": [
-      "aurelia-router",
       "aurelia-framework",
+      "aurelia-router",
       "local-storage-manager",
       "aurelia-auth"
     ],
-    "appointments.js": [
-      "./pages/modal/my-modal",
-      "aurelia-dialog",
-      "aurelia-framework"
+    "custom-elements/calendar.js": [
+      "aurelia-framework",
+      "multi-observer",
+      "fullcalendar",
+      "fullcalendar/dist/lang/pt",
+      "jquery-ui",
+      "jquery-ui-touch-punch"
     ],
     "custom-elements/input-field.js": [
       "aurelia-framework"
@@ -671,7 +694,6 @@ System.config({
     "login.js": [
       "aurelia-framework",
       "account-api",
-      "aurelia-validation",
       "aurelia-auth"
     ],
     "main.js": [
@@ -681,10 +703,12 @@ System.config({
       "aurelia-framework",
       "aurelia-binding"
     ],
+    "my-modal.js": [
+      "aurelia-dialog"
+    ],
     "nav-bar.js": [
       "aurelia-framework",
-      "account-api",
-      "utils"
+      "account-api"
     ],
     "pages/clients/client-form.js": [
       "aurelia-framework",
@@ -701,7 +725,14 @@ System.config({
       "aurelia-router",
       "aurelia-binding"
     ],
-    "pages/modal/my-modal.js": [
+    "pages/profile/profile.js": [
+      "aurelia-framework",
+      "local-storage-manager",
+      "account-api"
+    ],
+    "pages/services/services.js": [
+      "aurelia-framework",
+      "my-modal",
       "aurelia-dialog"
     ],
     "pages/stypes/service-type.js": [
@@ -718,12 +749,6 @@ System.config({
       "aurelia-framework",
       "multi-observer",
       "aurelia-validation"
-    ],
-    "services.js": [
-      "aurelia-framework",
-      "fullcalendar",
-      "jquery-ui",
-      "jquery-ui-touch-punch"
     ]
   }
 });

@@ -8,6 +8,7 @@
 @import "custom-elements/input-field"
 @import "clients"
 @import "login"
+@import "profile"
 
 body, html
   font-family: $font !important
@@ -54,6 +55,15 @@ svg-icons
   overflow-x: hidden
   overflow-y: auto
   background-color: $widget-bg-color
+
+.is-hidden
+  display: none
+  opacity: 0
+
+ai-dialog-overlay.active
+  background-color: rgba(0,0,0,0.5)
+
+
 
 @media print
   .page-host

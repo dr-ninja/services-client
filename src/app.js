@@ -1,10 +1,9 @@
-import {Redirect} from 'aurelia-router';
 import {inject} from 'aurelia-framework';
+import {Redirect, Router} from 'aurelia-router';
 import {LocalStorageManager} from 'local-storage-manager';
-
-import {Router} from 'aurelia-router';
 import {FetchConfig} from 'aurelia-auth';
-@inject(Router,FetchConfig )
+
+@inject(Router,FetchConfig)
 export class App {
 
   constructor(router, fetchConfig){
@@ -20,10 +19,11 @@ export class App {
     config.title = 'I Love Nails';
     config.addPipelineStep('authorize', AuthorizeStep);
     config.map([
-      { route: ['', 'login'], name: 'login', moduleId: 'login', nav: false, title: 'Login' },
+      { route: ['login'], name: 'login', moduleId: 'login', nav: false, title: 'Login' },
+      { route: ['', 'profile'], name: 'profile', moduleId: './pages/profile/profile', nav: true, title: 'profile', settings: { auth: true } },
       { route: 'clients', name: 'clients', moduleId: './pages/clients/clients', nav: true, title: 'clients', settings: { auth: true } },
-      { route: 'appointments', name: 'appointments', moduleId: 'appointments', nav: true, title: 'appointments', settings: { auth: true } },
-      { route: 'services', name: 'services', moduleId: 'services', nav: true, title: 'services', settings: { auth: false } },
+      { route: 'appointments', name: 'appointments', moduleId: './pages/appointments/appointments', nav: true, title: 'appointments', settings: { auth: true } },
+      { route: 'services', name: 'services', moduleId: './pages/services/services', nav: true, title: 'services', settings: { auth: false } },
       { route: 'service-types', name: 'service-types', moduleId: './pages/stypes/service-types', nav: true, title: 'service-types', settings: { auth: false } }
     ]);
 

@@ -52,7 +52,7 @@ export class ServiceTypes {
 
   attached() {
     let id = (this.router.currentInstruction.params.id) || null;
-    let idx = this.list.findIndex(el => {return el.data.id == id;});
+    let idx = this.list.findIndex(el => {return el.data._id == id;});
 
     if (idx > -1) {
       this.selectItem(this.list[idx], idx);
@@ -76,7 +76,8 @@ export class ServiceTypes {
   }
 
   selectItem(item, idx) {
-    this.router.navigateToRoute(this.subModules[0].name, { id: item.data.id});
+    console.log(item);
+    this.router.navigateToRoute(this.subModules[0].name, { id: item.data._id});
     this.selectedIdx = idx;
   }
 

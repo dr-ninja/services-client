@@ -1,0 +1,27 @@
+<template>
+
+  <require from="../../custom-elements/svg-icons.html"></require>
+
+  <div id="profile">
+
+    <div class="main-info" click.trigger="toggleDetails()">
+      <img class="avatar" src="${profile.image.url}" alt="avatar"/>
+      <p>${profile.name}</p>
+      <a class="mail" href="mailto:${profile.email}">${profile.email}</a>
+    </div>
+
+    <div class="options ${showDetails ? '' : 'is-hidden'}">
+      <button class="set-token-btn" click.trigger="setAccessToken(accessToken)">ok</button>
+      <input-field class="input access_token"
+                   type.one-time="'text'"
+                   value.two-way="accessToken"
+                   placeholder.one-time="'Access Token'"
+                   readonly.one-way="readonly"
+                   icon.one-time="''">
+      </input-field>
+
+
+    </div>
+  </div>
+
+</template>

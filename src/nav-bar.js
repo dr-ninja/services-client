@@ -1,15 +1,13 @@
 import {inject, bindable} from 'aurelia-framework';
 import {AccountApi} from 'account-api';
-import {Utils} from 'utils';
 
-@inject(AccountApi, Utils)
+@inject(AccountApi)
 export class NavBar {
   @bindable router;
-  @bindable isAuth = null;
 
-  constructor(accountApi, utils) {
+
+  constructor(accountApi) {
     this.accountApi = accountApi;
-    this.utils = utils;
   }
 
   logOut() {
@@ -18,5 +16,7 @@ export class NavBar {
 
   canDeactivate() {}
 
-  attached() {}
+  attached() {
+
+  }
 }

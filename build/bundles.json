@@ -31,7 +31,12 @@
         "aurelia-validation",
         "aurelia-dialog",
         "aurelia-auth",
-        "fetch"
+        "fetch",
+        "jquery-ui-touch-punch",
+        "jquery-ui",
+        "fullcalendar",
+        "moment",
+        "text"
       ],
       "options": {
         "inject": true,
