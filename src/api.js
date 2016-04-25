@@ -15,14 +15,15 @@ export class Api {
     this.localStorageMgr = localStorage;
     this.factory = factory;
     this.router = router;
+    this.http = http;
 
-    http.configure(config => {
+    this.http.configure(config => {
       config
         .useStandardConfiguration()
         .withBaseUrl(this.config.serverDomain)
         .withInterceptor(this.tokenInterceptor);
     });
-    this.http = http;
+
   }
 
   getBlankItem(config) {
@@ -84,6 +85,7 @@ export class Api {
   get tokenInterceptor() {
     let storage = this.localStorageMgr;
     let router = this.router;
+    let http = this.http;
 
     return {
       /*request(request) {
@@ -105,12 +107,24 @@ export class Api {
         console.log(`Received ${response.status} ${response.url}`);
         return response; // you can return a modified Response
       },
-      responseError(error) {
+      responseError(error, req) {
+       
         if (error.status && error.status === 401) {
           storage.store('aurelia_token', "");
           storage.store('aurelia_id_token', "");
           storage.store('google_state', "");
           router.navigate('login');
+        }
+
+        if(error.status && error.status === 503) {
+
+
+          setTimeout(() =>{
+           
+            return http.fetch(req);
+
+          }, 5000);
+
         }
         throw error;
       }
